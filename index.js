@@ -45,6 +45,10 @@ app.post('/webhook/', function (req, res) {
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)
+			if (text === "GET_STARTED") {
+					send_message.text(sender, "Welcome {{first_name}}! I can help you find the perfect internship for you."+text.substring(0, 200))
+					continue
+			}
 			send_message.text(sender, "Postback received: "+text.substring(0, 200))
 			continue
 		}

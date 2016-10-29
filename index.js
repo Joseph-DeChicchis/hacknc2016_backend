@@ -113,7 +113,7 @@ function checkCanSuggest(sender) {
 
 function addRoletoSender(sender, role) {
 	let userRoles = sessions[sender]["roles"]
-	if (userRoles.includes(role) == -1) {
+	if (userRoles.arrayContains(role) == false) {
 		sessions[sender]["roles"] = userRoles.push(role)
 	}
 }
@@ -123,7 +123,7 @@ function randomResponse(sender) {
 	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
 }
 
-function includes(k) {
+function arrayContains(k) {
   for(var i=0; i < this.length; i++){
     if( this[i] === k || ( this[i] !== this[i] && k !== k ) ){
       return true;

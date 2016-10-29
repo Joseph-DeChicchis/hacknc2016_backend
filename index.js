@@ -57,7 +57,7 @@ app.post('/webhook/', function (req, res) {
 			var dataLogged = false
 
 			// Look for roles
-			if (textContains(text, ["software", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
+			if (textArrayContains(textArray, ["software", "ios", "web", "mobile", "mac", "windows", "linux", "ai"]) || textContains(text, ["artificial intelligence", "machine learning"])) {
 				addRoletoSender(sender, "SE")
 				dataLogged = true
 			}
@@ -65,15 +65,15 @@ app.post('/webhook/', function (req, res) {
 				addRoletoSender(sender, "QA")
 				dataLogged = true
 			}
-			if (textContains(text, ["user interface", "user experience", "ux", "design"])) {
+			if (textArrayContains(textArray, ["ux", "design", "ui"]) || textContains(text, ["user interface", "user experience"])) {
 				addRoletoSender(sender, "UI")
 				dataLogged = true
 			}
-			if (textContains(text, ["pm", "project management", "product management"])) {
+			if (textArrayContains(textArray, ["pm"]) || textContains(text, ["project management", "product management"])) {
 				addRoletoSender(sender, "PM")
 				dataLogged = true
 			}
-			if (textContains(text, ["data analy", "big data", "statistics"])) {
+			if (textArrayContains(textArray, ["statistics"]) || textContains(text, ["data analy", "big data"])) {
 				addRoletoSender(sender, "DA")
 				dataLogged = true
 			}
@@ -88,7 +88,7 @@ app.post('/webhook/', function (req, res) {
 				sessions[sender]["size"] = "medium"
 				dataLogged = true
 			}
-			else if (textArrayContains(textArray, ["large", "big company"])) {
+			else if (textArrayContains(textArray, ["large"]) || textContains(text, ["big company"])) {
 				sessions[sender]["size"] = "large"
 				dataLogged = true
 			}
@@ -96,34 +96,21 @@ app.post('/webhook/', function (req, res) {
 				sessions[sender]["size"] = "any"
 				dataLogged = true
 			}
-			/*
-			if (textArray.arrayContains("small") || textArray.arrayContains("medium") || textArray.arrayContains("startup")) {
-				sessions[sender]["size"] = "medium"
-				dataLogged = true
-			}
-			else if (textArray.arrayContains("large") || textArray.arrayContains("big company")) {
-				sessions[sender]["size"] = "large"
-				dataLogged = true
-			}
-			else if (textArray.arrayContains("any size")) {
-				sessions[sender]["size"] = "any"
-				dataLogged = true
-			}*/
 
 			// Look for platforms
-			if (textContains(text, ["ios", "android", "mobile"])) {
+			if (textArrayContains(textArray, ["ios", "android", "mobile"])) {
 				addPlatformtoSender(sender, "mobile")
 				dataLogged = true
 			}
-			if (textContains(text, ["backend", "database", "data center", "cloud"])) {
+			if (textArrayContains(textArray, ["backend", "database", "cloud"]) || textContains(text, ["data center"])) {
 				addPlatformtoSender(sender, "backend")
 				dataLogged = true
 			}
-			if (textContains(text, ["web", "html", "css", "javascript"])) {
+			if (textArrayContains(textArray, ["web", "html", "css", "javascript"])) {
 				addPlatformtoSender(sender, "web")
 				dataLogged = true
 			}
-			if (textContains(text, ["media", "design", "user interface", "ux"])) {
+			if (textArrayContains(textArray, ["media", "design", "ux"]) || textContains(text, ["user interface"])) {
 				addPlatformtoSender(sender, "media")
 				dataLogged = true
 			}
@@ -207,14 +194,14 @@ function addPlatformtoSender(sender, platform) {
 	}
 }
 
-function checkForLanguages(text, sender) {
+function checkForLanguages(textArray, sender) {
 	let languages = ["java", "javascript", "php", "python", "objective-c", "ruby", "perl", "c++", "c#", "swift", "sql", "haskell", "scala", "bash", "lua", "clojure", "assembly"]
 
 	var languagePresent = false
 
 	for(var i=0;i<languages.length;i++) {
 		let language = languages[i]
-		if (text.includes(language)) {
+		if (textArrayContains(textArray, [language])) {
 			languagePresent = true
 			addLanguageSender(sender, language)
 		}

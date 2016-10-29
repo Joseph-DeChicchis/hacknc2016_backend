@@ -79,7 +79,7 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			// Look for languages
-			if (checkForLanguages(text, sender)) {
+			if (checkForLanguages(textArray, sender)) {
 				dataLogged = true
 			}
 

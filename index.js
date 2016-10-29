@@ -112,8 +112,9 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
-	if (sessions[sender]["roles"].includes(role) == -1) {
-		sessions[sender]["roles"] = sessions[sender]["roles"].push(role)
+	let userRoles = sessions[sender]["roles"]
+	if (userRoles.includes(role) == -1) {
+		sessions[sender]["roles"] = userRoles.push(role)
 	}
 }
 

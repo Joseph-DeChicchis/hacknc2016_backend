@@ -55,7 +55,7 @@ app.post('/webhook/', function (req, res) {
 			//customer support agent", "android angineer", "software engineer in quality"
 				//, "product manager", "software engineer", "product management", "software developer", "big data engineer"
 	//			, "quality assurence
-			if (text.includes("software") || text.includes("big data") || text.includes(" ai ") || text.includes("artificial intelligence") || text.includes("machine learning")) {
+			if (textContains(text, ["software", "big data", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
 				addRoletoSender(sender, "SE")
 				send_message.text(sender, "Got it. Any other interests?")
 			}
@@ -132,6 +132,16 @@ Array.prototype.arrayContains = function(k) {
 		if(this[i] === k) {return true}
 	}
   return false
+}
+
+function textContains(text,array) {
+	for(var s in array) {
+		if (text.includes(s)) {
+			return true
+		}
+	}
+
+	return false
 }
 
 // spin spin sugar

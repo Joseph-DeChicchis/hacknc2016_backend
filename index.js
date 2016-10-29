@@ -170,7 +170,7 @@ function addLanguageSender(sender, language) {
 	if (userLanguages.length == 0) {
 		sessions[sender]["languages"] = [language]
 	}
-	else if (userLanguages.arrayContains(role) == false) {
+	else if (userLanguages.arrayContains(language) == false) {
 		sessions[sender]["languages"] = userLanguages.concat([language])
 	}
 }

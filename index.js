@@ -57,7 +57,22 @@ app.post('/webhook/', function (req, res) {
 	//			, "quality assurence
 			if (textContains(text, ["software", "big data", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
 				addRoletoSender(sender, "SE")
-				send_message.text(sender, "Got it. Any other interests? If not, tell us other things about where you want to intern.")
+				send_message.text(sender, "Got it. Any other interests? If not, tell us other things about where you want to intern")
+			}
+			else if (textContains(text, ["quality"])) {
+				addRoletoSender(sender, "QA")
+				send_message.text(sender, "Great! Tell us more about what you're looking for")
+			}
+			else if (textContains(text, ["user interface", "user experience", "ux", "design"])) {
+				addRoletoSender(sender, "UI")
+				send_message.text(sender, "Awesome! Anything else")
+			}
+			else if (textContains(text, ["pm", "project management", "product management"])) {
+				addRoletoSender(sender, "PM")
+				send_message.text(sender, "Very cool. What else are you looking for?")
+			}
+			else if (text === "help") {
+				send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!")
 			}
 			else if (text === 'generic') {
 				send_message.generic(sender)
@@ -76,7 +91,7 @@ app.post('/webhook/', function (req, res) {
 			console.log("Payload: "+ payload);
 			if (payload == "GET_STARTED") {
 					//send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"QA Engineer", "payload": "QA"}])
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?")
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nWhat kind of internship are you looking for?")
 			}
 			else if (payload == "SE") {
 				addRoletoSender(sender, "SE")
@@ -140,7 +155,7 @@ function textContains(text,array) {
 	for(var i=0;i<array.length;i++) {
 		if(text.includes(array[i])) {return true}
 	}
-	
+
 	return false
 }
 

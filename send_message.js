@@ -66,6 +66,7 @@ module.exports = {
 
   // quickReplies
   quickReplies: function (recipientId, messageText, replies) {
+    console.log("quickReplies")
     var messageData = {
     recipient: {
       id: recipientId

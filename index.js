@@ -129,7 +129,8 @@ app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
 })
 
-app.get("/*", function(request, response, next) {}
-    console.log("Request: " + request)
+// static website code
+
+app.get("/*", function(req, res) {
     response.sendFile(__dirname + '/public/404.html')
 });

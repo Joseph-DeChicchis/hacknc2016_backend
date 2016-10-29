@@ -57,7 +57,7 @@ app.post('/webhook/', function (req, res) {
 	//			, "quality assurence
 			if (textContains(text, ["software", "big data", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
 				addRoletoSender(sender, "SE")
-				send_message.text(sender, "Got it. Any other interests?")
+				send_message.text(sender, "Got it. Any other interests? If not, tell us other things about where you want to intern.")
 			}
 			else if (text === 'generic') {
 				send_message.generic(sender)
@@ -135,6 +135,7 @@ Array.prototype.arrayContains = function(k) {
 }
 
 function textContains(text,array) {
+	console.log("textContains: " + text " **** " + array);
 	for(var s in array) {
 		if (text.includes(s)) {
 			return true

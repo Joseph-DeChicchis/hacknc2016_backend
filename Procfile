@@ -1,1 +1,1 @@
-web: node index.js -p 5000
+web: node index.js

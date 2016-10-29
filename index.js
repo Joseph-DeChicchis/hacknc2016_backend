@@ -129,13 +129,11 @@ function randomResponse(sender) {
 	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
 }
 
-function arrayContains(k) {
-  for(var i=0; i < this.length; i++){
-    if( this[i] === k || ( this[i] !== this[i] && k !== k ) ){
-      return true
-    }
-  }
-  return false
+Array.prototype.arrayContains = function(k) {
+  for(p in this)
+     if(this[p] === k)
+        return true;
+  return false;
 }
 
 // spin spin sugar

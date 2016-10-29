@@ -43,7 +43,7 @@ app.post('/webhook/', function (req, res) {
 			sessions[sender] = {
 				"locations": [],
 				"roles": [],
-				"size": "",
+				"size": "any",
 				"field": [],
 				"languages": [],
 				"platforms": []
@@ -55,6 +55,7 @@ app.post('/webhook/', function (req, res) {
 
 			var dataLogged = false
 
+			// Look for roles
 			if (textContains(text, ["software", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
 				addRoletoSender(sender, "SE")
 				dataLogged = true
@@ -76,7 +77,36 @@ app.post('/webhook/', function (req, res) {
 				dataLogged = true
 			}
 
+			// Look for languages
 			if (checkForLanguages(text, sender)) {
+				dataLogged = true
+			}
+
+			// Loook for size
+			if (text.includes("small") || text.includes("medium") || text.includes("startup")) {
+				sessions[sender]["size"] = "medium"
+				dataLogged = true
+			}
+			else if (text.includes("large") || text.includes("big company")) {
+				sessions[sender]["size"] = "large"
+				dataLogged = true
+			}
+			else if (text.includes("any size")) {
+				sessions[sender]["size"] = "any"
+				dataLogged = true
+			}
+
+			// Look for platforms
+			if (textContains(text, ["ios", "android", "mobile"])) {
+				addPlatformtoSender(sender, "mobile")
+				dataLogged = true
+			}
+			if (textContains(text, ["backend", "database", "data center", "cloud"])) {
+				addPlatformtoSender(sender, "backend")
+				dataLogged = true
+			}
+			if (textContains(text, ["web", "html", "css", "javascript"])) {
+				addPlatformtoSender(sender, "web")
 				dataLogged = true
 			}
 
@@ -145,6 +175,17 @@ function addRoletoSender(sender, role) {
 	}
 	else if (userRoles.arrayContains(role) == false) {
 		sessions[sender]["roles"] = userRoles.concat([role])
+	}
+}
+
+function addPlatformtoSender(sender, platform) {
+	let userPlatforms = sessions[sender]["platforms"]
+	console.log("userPlatforms: " + userPlatforms);
+	if (userPlatforms.length == 0) {
+		sessions[sender]["platforms"] = [platform]
+	}
+	else if (userPlatforms.arrayContains(platform) == false) {
+		sessions[sender]["platforms"] = userPlatforms.concat([platform])
 	}
 }
 

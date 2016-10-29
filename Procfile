@@ -1,1 +1,1 @@
-web: node facebook_bot.js
+web: node index.js

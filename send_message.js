@@ -2,13 +2,14 @@ const request = require('request')
 
 module.exports = {
   // Send text message
-  text: function (recipientId, messageText) {
+  text: function (recipientId, messageText, replies) {
     var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
-      text: messageText
+      text: messageText,
+      quick_replies: replies
     }
   };
 

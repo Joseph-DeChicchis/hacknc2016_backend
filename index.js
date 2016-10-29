@@ -66,6 +66,7 @@ app.post('/webhook/', function (req, res) {
 			//console.log("Postback: " + callback)
 			//console.log("callback: " + event.postback["payload"])
 			let payload = event.postback["payload"];
+			console.log("Payload: "+ payload);
 			if (payload == "GET_STARTED") {
 					send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"QA Engineer", "payload": "QA"}])
 			}

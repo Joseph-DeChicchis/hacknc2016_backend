@@ -84,6 +84,18 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			// Loook for size
+			if (textArrayContains(textArray, ["small","medium","startup"])) {
+				sessions[sender]["size"] = "medium"
+				dataLogged = true
+			}
+			else if (textArrayContains(textArray), ["large", "big company"]) {
+				sessions[sender]["size"] = "large"
+				dataLogged = true
+			}
+			else if (textContains(text, ["any size"])) {
+				sessions[sender]["size"] = "any"
+				dataLogged = true
+			}
 			/*
 			if (textArray.arrayContains("small") || textArray.arrayContains("medium") || textArray.arrayContains("startup")) {
 				sessions[sender]["size"] = "medium"
@@ -97,18 +109,6 @@ app.post('/webhook/', function (req, res) {
 				sessions[sender]["size"] = "any"
 				dataLogged = true
 			}*/
-			if (text.includes("small") || text.includes("medium") || text.includes("startup")) {
-				sessions[sender]["size"] = "medium"
-				dataLogged = true
-			}
-			else if (text.includes("large") || text.includes("big company")) {
-				sessions[sender]["size"] = "large"
-				dataLogged = true
-			}
-			else if (text.includes("any size")) {
-				sessions[sender]["size"] = "any"
-				dataLogged = true
-			}
 
 			// Look for platforms
 			if (textContains(text, ["ios", "android", "mobile"])) {
@@ -254,9 +254,15 @@ Array.prototype.arrayContains = function(k) {
 function textContains(text,array) {
 	var s = ""
 	for(var i=0;i<array.length;i++) {
-		//if(text.includes(array[i])) {return true}
-		//let regx = "\W"+array[i]+"\W"
-		if(text.search(/\Warray[i]\W/)) {return true}
+		if(text.includes(array[i])) {return true}
+	}
+
+	return false
+}
+
+function textArrayContains(textArray,array) {
+	for(var i=0;i<array.length;i++) {
+		if(textArray.arrayContains(array[i])) {return true}
 	}
 
 	return false

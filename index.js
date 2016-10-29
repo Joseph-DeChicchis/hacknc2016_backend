@@ -59,14 +59,14 @@ app.post('/webhook/', function (req, res) {
 				addRoletoSender(sender, "SE")
 				send_message.text(sender, "Got it. Any other interests?")
 			}
-
-			if (text === 'generic') {
+			else if (text === 'generic') {
 				send_message.generic(sender)
 				continue
 			}
-
-			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
-			continue
+			else {
+				send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+				continue
+			}
 		}
 		if (event.postback) {
 			//let callback = JSON.stringify(event.postback)
@@ -113,9 +113,6 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
-	let userRoles = ["PM", "QA"]//sessions[sender]["roles"]
-	console.log("userRoles: " + userRoles)
-	console.log("role: " + role);
 	if (userRoles == null) {
 		sessions[sender]["roles"] = [role]
 	}

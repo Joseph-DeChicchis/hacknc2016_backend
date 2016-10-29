@@ -113,6 +113,7 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
+	let userRoles = sessions[sender]["roles"]
 	if (userRoles == null) {
 		sessions[sender]["roles"] = [role]
 	}

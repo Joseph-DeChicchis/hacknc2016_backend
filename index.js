@@ -88,7 +88,7 @@ app.post('/webhook/', function (req, res) {
 				sessions[sender]["size"] = "medium"
 				dataLogged = true
 			}
-			else if (textArrayContains(textArray), ["large", "big company"]) {
+			else if (textArrayContains(textArray, ["large", "big company"])) {
 				sessions[sender]["size"] = "large"
 				dataLogged = true
 			}

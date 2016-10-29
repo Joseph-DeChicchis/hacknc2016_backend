@@ -16,10 +16,12 @@ module.exports = {
   }
 };
 
+const token = "EAAS6MQj6ImsBAP7h2uGf18YSBnQkRZCnjQzQpZCKGZCfuZB91WUcec62tThIdT5AeQXc7LfMmrZCOMZAosdb5a2RAj1LD0KL4Ri7X7kSQGVdmpiobQeAZB4ZB0lbXgM8sBMeSvq0L6JGFaXYNmubjojtxZAZAzNVQeawnAQtQyQ63izwZDZD"
+
 function callSendAPI(messageData) {
   request({
     uri: 'https://graph.facebook.com/v2.6/me/messages',
-    qs: { access_token: PAGE_ACCESS_TOKEN },
+    qs: { access_token: token },
     method: 'POST',
     json: messageData
 

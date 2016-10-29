@@ -62,7 +62,7 @@ module.exports = {
   };
 
   callSendAPI(messageData);
-  }
+},
 
   // quickReplies
   quickReplies: function (recipientId, replies) {

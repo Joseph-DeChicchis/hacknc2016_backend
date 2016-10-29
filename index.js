@@ -92,7 +92,7 @@ app.post('/webhook/', function (req, res) {
 })
 
 function checkCanSuggest(sender) {
-	console.log(sessions[sender]);
+	console.log("Session: " + sessions[sender]);
 	if (sessions[sender]["locations"].length == 0) { return false }
 	if (sessions[sender]["roles"].length == 0) { return false }
 	if (sessions[sender]["size"] == "") { return false }

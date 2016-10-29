@@ -65,12 +65,13 @@ module.exports = {
 },
 
   // quickReplies
-  quickReplies: function (recipientId, replies) {
+  quickReplies: function (recipientId, messageText, replies) {
     var messageData = {
     recipient: {
       id: recipientId
     },
     message: {
+      text: messageText,
       quick_replies: replies
     }
   };

@@ -52,6 +52,7 @@ app.post('/webhook/', function (req, res) {
 		//randomResponse(sender)
 		if (event.message && event.message.text) {
 			let text = event.message.text.toLowerCase()
+			let textArray = event.message.text.toLowerCase().split(" ")
 
 			var dataLogged = false
 
@@ -83,6 +84,19 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			// Loook for size
+			if (textArray.arrayContains("small") || textArray.arrayContains("medium") || textArray.arrayContains("startup")) {
+				sessions[sender]["size"] = "medium"
+				dataLogged = true
+			}
+			else if (textArray.arrayContains("large") || textArray.arrayContains("big company")) {
+				sessions[sender]["size"] = "large"
+				dataLogged = true
+			}
+			else if (textArray.arrayContains("any size")) {
+				sessions[sender]["size"] = "any"
+				dataLogged = true
+			}
+			/*
 			if (text.includes("small") || text.includes("medium") || text.includes("startup")) {
 				sessions[sender]["size"] = "medium"
 				dataLogged = true
@@ -94,7 +108,7 @@ app.post('/webhook/', function (req, res) {
 			else if (text.includes("any size")) {
 				sessions[sender]["size"] = "any"
 				dataLogged = true
-			}
+			}*/
 
 			// Look for platforms
 			if (textContains(text, ["ios", "android", "mobile"])) {
@@ -107,6 +121,10 @@ app.post('/webhook/', function (req, res) {
 			}
 			if (textContains(text, ["web", "html", "css", "javascript"])) {
 				addPlatformtoSender(sender, "web")
+				dataLogged = true
+			}
+			if (textContains(text, ["media", "design", "user interface", "ux"])) {
+				addPlatformtoSender(sender, "media")
 				dataLogged = true
 			}
 

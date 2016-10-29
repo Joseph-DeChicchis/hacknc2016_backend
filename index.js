@@ -57,30 +57,29 @@ app.post('/webhook/', function (req, res) {
 
 			if (textContains(text, ["software", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
 				addRoletoSender(sender, "SE")
-				randomMoreInfoResponse(sender)
 				dataLogged = true
 			}
 			if (textContains(text, ["quality"])) {
 				addRoletoSender(sender, "QA")
-				randomMoreInfoResponse(sender)
 				dataLogged = true
 			}
 			if (textContains(text, ["user interface", "user experience", "ux", "design"])) {
 				addRoletoSender(sender, "UI")
-				randomMoreInfoResponse(sender)
 				dataLogged = true
 			}
 			if (textContains(text, ["pm", "project management", "product management"])) {
 				addRoletoSender(sender, "PM")
-				randomMoreInfoResponse(sender)
 				dataLogged = true
 			}
 			if (textContains(text, ["data analy", "big data", "statistics"])) {
 				addRoletoSender(sender, "DA")
-				randomMoreInfoResponse(sender)
 				dataLogged = true
 			}
-			if (dataLogged == false) {
+
+			if (dataLogged == true) {
+				randomMoreInfoResponse(sender)
+			}
+			else {
 				if (text === "help") {
 					send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!")
 				}

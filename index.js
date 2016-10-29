@@ -76,6 +76,10 @@ app.post('/webhook/', function (req, res) {
 				dataLogged = true
 			}
 
+			if (checkForLanguages(text, sender)) {
+				dataLogged = true
+			}
+
 			if (dataLogged == true) {
 				randomMoreInfoResponse(sender)
 			}
@@ -141,6 +145,33 @@ function addRoletoSender(sender, role) {
 	}
 	else if (userRoles.arrayContains(role) == false) {
 		sessions[sender]["roles"] = userRoles.concat([role])
+	}
+}
+
+function checkForLanguages(text, sender) {
+	let languages = ["java", "javascript", "php", "python", "objective-c", "ruby", "perl", "c++", "c#", "swift", "sql", "haskell", "scala", "bash", "lua", "clojure", "assembly"]
+
+	var languagePresent = false
+
+	for(var i=0;i<languages.length;i++) {
+		let language = languages[i]
+		if (text.includes(language)) {
+			languagePresent = true
+			addLanguageSender(sender, language)
+		}
+	}
+
+	return languagePresent
+}
+
+function addLanguageSender(sender, language) {
+	let userLanguages = sessions[sender]["languages"]
+	console.log("userLanguages: " + userLanguages);
+	if (userLanguages.length == 0) {
+		sessions[sender]["languages"] = [language]
+	}
+	else if (userLanguages.arrayContains(role) == false) {
+		sessions[sender]["languages"] = userLanguages.concat([language])
 	}
 }
 

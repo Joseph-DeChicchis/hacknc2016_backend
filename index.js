@@ -131,6 +131,7 @@ app.listen(app.get('port'), function() {
 
 // static website code
 
-app.get("/*", function(req, res) {
+app.get("/*", function(request, response, next) {
+    console.log("404 not found");
     response.sendFile(__dirname + '/public/404.html')
 });

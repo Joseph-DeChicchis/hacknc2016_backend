@@ -37,38 +37,29 @@ app.post('/webhook/', function (req, res) {
 	for (let i = 0; i < messaging_events.length; i++) {
 		let event = req.body.entry[0].messaging[i]
 		let sender = event.sender.id
+
+		if (sessions[sender] == null) {
+
+			sessions[sender] = {
+				"locations": [],
+				"roles": [],
+				"size": "",
+				"field": [],
+				"languages": [],
+				"platforms": []
+			}
+		}
+		//randomResponse(sender)
 		if (event.message && event.message.text) {
 			let text = event.message.text
-
-			if (sessions[sender] != null) {
-
-				randomResponse(sender)
-
-				continue
-			}
-			else {
-				if (true) {	// check if contains trigger word
-
-					sessions[sender] = {
-						"locations": [],
-						"roles": [],
-						"size": "",
-						"field": [],
-						"languages": [],
-						"platforms": []
-					}
-
-					continue
-				}
-
-				randomResponse(sender)
-			}
 
 			if (text === 'Generic') {
 				send_message.generic(sender)
 				continue
 			}
+
 			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+			continue
 		}
 		if (event.postback) {
 			//let callback = JSON.stringify(event.postback)
@@ -76,16 +67,47 @@ app.post('/webhook/', function (req, res) {
 			//console.log("callback: " + event.postback["payload"])
 			let payload = event.postback["payload"];
 			if (payload == "GET_STARTED") {
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?")
-					send_message.quickReplies(sender, "Here are some suggestions", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"PM", "payload": "PM"}])
-					continue
+					send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"QA Engineer", "payload": "QA"}])
+			}
+			else if (payload == "SE") {
+				addRoletoSender(sender, "SE")
+				send_message.text(sender, "Got it. Any other interests?")
+			}
+			else if (payload == "PM") {
+				addRoletoSender(sender, "PM")
+				send_message.text(sender, "Got it. Any other interests?")
+			}
+			else if (payload == "QA") {
+				addRoletoSender(sender, "QA")
+				send_message.text(sender, "Got it. Any other interests?")
 			}
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
-			continue
+		}
+
+		if (checkCanSuggest() == true) {
+
 		}
 	}
 	res.sendStatus(200)
 })
+
+function checkCanSuggest(sender) {
+	console.log(sessions[sender]);
+	if (sessions[sender]["locations"].length == 0) { return false }
+	if (sessions[sender]["roles"].length == 0) { return false }
+	if (sessions[sender]["size"] == "") { return false }
+	if (sessions[sender]["field"].length == 0) { return false }
+	if (sessions[sender]["languages"].length == 0) { return false }
+	if (sessions[sender]["platforms"].length == 0) { return false }
+
+	return true
+}
+
+function addRoletoSender(sender, role) {
+	if (sessions[sender][roles].indexOf(role) == -1) {
+		sessions[sender][roles] = sessions[sender][roles].push(role)
+	}
+}
 
 function randomResponse(sender) {
 	let randomWords = ["OK", "I understand", "Let me see what I can do...", "I'll try my best to help you", "I got your back!", "Awesome!"]

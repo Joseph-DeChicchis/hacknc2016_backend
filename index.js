@@ -84,7 +84,7 @@ app.post('/webhook/', function (req, res) {
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
 		}
 
-		if (checkCanSuggest() == true) {
+		if (checkCanSuggest(sender) == true) {
 
 		}
 	}

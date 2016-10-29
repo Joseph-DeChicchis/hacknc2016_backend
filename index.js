@@ -51,9 +51,16 @@ app.post('/webhook/', function (req, res) {
 		}
 		//randomResponse(sender)
 		if (event.message && event.message.text) {
-			let text = event.message.text
+			let text = event.message.text.toLowerCase()
+			//customer support agent", "android angineer", "software engineer in quality"
+				//, "product manager", "software engineer", "product management", "software developer", "big data engineer"
+	//			, "quality assurence
+			if (text.includes("software") || text.includes("big data") || text.includes(" ai ") || text.includes("artificial intelligence") || text.includes("machine learning")) {
+				addRoletoSender(sender, "SE")
+				send_message.text(sender, "Got it. Any other interests?")
+			}
 
-			if (text === 'Generic') {
+			if (text === 'generic') {
 				send_message.generic(sender)
 				continue
 			}

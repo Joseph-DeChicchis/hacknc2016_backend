@@ -1,13 +1,13 @@
 'use strict'
 
-var send_message = require('./send_message');
+var send_message = require('./send_message')
 
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
-var sessions = {};	// store session information
+var sessions = {}	// store session information
 
 app.set('port', (process.env.PORT || 5000))
 
@@ -75,7 +75,8 @@ app.post('/webhook/', function (req, res) {
 			let payload = event.postback["payload"];
 			console.log("Payload: "+ payload);
 			if (payload == "GET_STARTED") {
-					send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"QA Engineer", "payload": "QA"}])
+					//send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"QA Engineer", "payload": "QA"}])
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?")
 			}
 			else if (payload == "SE") {
 				addRoletoSender(sender, "SE")
@@ -100,7 +101,7 @@ app.post('/webhook/', function (req, res) {
 })
 
 function checkCanSuggest(sender) {
-	console.log("Session: " + JSON.stringify(sessions[sender]));
+	console.log("Session: " + JSON.stringify(sessions[sender]))
 	if (sessions[sender]["locations"].length == 0) { return false }
 	if (sessions[sender]["roles"].length == 0) { return false }
 	if (sessions[sender]["size"] == "") { return false }
@@ -112,10 +113,11 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
-	let userRoles = sessions[sender]["roles"]
-	console.log("userRoles: " + userRoles);
+	let userRoles = ["PM"]//sessions[sender]["roles"]
+	console.log("userRoles: " + userRoles)
+	console.log("role: " + role);
 	if (userRoles == null) {
-		sessions[sender]["roles"] = [role];
+		sessions[sender]["roles"] = [role]
 	}
 	else if (userRoles.arrayContains(role) == false) {
 		sessions[sender]["roles"] = userRoles.push(role)
@@ -130,10 +132,10 @@ function randomResponse(sender) {
 function arrayContains(k) {
   for(var i=0; i < this.length; i++){
     if( this[i] === k || ( this[i] !== this[i] && k !== k ) ){
-      return true;
+      return true
     }
   }
-  return false;
+  return false
 }
 
 // spin spin sugar
@@ -144,6 +146,6 @@ app.listen(app.get('port'), function() {
 // static website code
 
 app.get("/*", function(request, response, next) {
-    console.log("404 not found");
+    console.log("404 not found")
     response.sendFile(__dirname + '/public/404.html')
 });

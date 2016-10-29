@@ -130,11 +130,10 @@ function randomResponse(sender) {
 }
 
 Array.prototype.arrayContains = function(k) {
-	for(i=0;i<this.length;i++) {
-		if(this[i] === k)
-			 return true;
+	for(var i=0;i<this.length;i++) {
+		if(this[i] === k) {return true}
 	}
-  return false;
+  return false
 }
 
 // spin spin sugar

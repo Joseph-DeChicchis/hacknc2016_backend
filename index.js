@@ -84,6 +84,7 @@ app.post('/webhook/', function (req, res) {
 			}
 
 			// Loook for size
+			/*
 			if (textArray.arrayContains("small") || textArray.arrayContains("medium") || textArray.arrayContains("startup")) {
 				sessions[sender]["size"] = "medium"
 				dataLogged = true
@@ -95,8 +96,7 @@ app.post('/webhook/', function (req, res) {
 			else if (textArray.arrayContains("any size")) {
 				sessions[sender]["size"] = "any"
 				dataLogged = true
-			}
-			/*
+			}*/
 			if (text.includes("small") || text.includes("medium") || text.includes("startup")) {
 				sessions[sender]["size"] = "medium"
 				dataLogged = true
@@ -108,7 +108,7 @@ app.post('/webhook/', function (req, res) {
 			else if (text.includes("any size")) {
 				sessions[sender]["size"] = "any"
 				dataLogged = true
-			}*/
+			}
 
 			// Look for platforms
 			if (textContains(text, ["ios", "android", "mobile"])) {
@@ -254,7 +254,9 @@ Array.prototype.arrayContains = function(k) {
 function textContains(text,array) {
 	var s = ""
 	for(var i=0;i<array.length;i++) {
-		if(text.includes(array[i])) {return true}
+		//if(text.includes(array[i])) {return true}
+		//let regx = "\W"+array[i]+"\W"
+		if(text.search(/\Warray[i]\W/)) {return true}
 	}
 
 	return false

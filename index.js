@@ -1,5 +1,7 @@
 'use strict'
 
+var send_message = require('send_message');
+
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
@@ -39,7 +41,8 @@ app.post('/webhook/', function (req, res) {
 				sendGenericMessage(sender)
 				continue
 			}
-			sendTextMessage(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+			//sendTextMessage(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
 		}
 		if (event.postback) {
 			let text = JSON.stringify(event.postback)

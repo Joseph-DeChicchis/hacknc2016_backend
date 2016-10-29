@@ -128,3 +128,8 @@ function sendGenericMessage(sender) {
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
 })
+
+app.get("/*", function(request, response, next) {
+    console.log("404 not found");
+    response.sendFile(__dirname + '/public/404.html')
+});

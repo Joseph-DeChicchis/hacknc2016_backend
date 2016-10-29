@@ -130,9 +130,10 @@ function randomResponse(sender) {
 }
 
 Array.prototype.arrayContains = function(k) {
-  for(p in this)
-     if(this[p] === k)
-        return true;
+	for(i=0;i<this.length;i++) {
+		if(this[i] === k)
+			 return true;
+	}
   return false;
 }
 

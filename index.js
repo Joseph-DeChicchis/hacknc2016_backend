@@ -75,7 +75,7 @@ app.post('/webhook/', function (req, res) {
 				randomMoreInfoResponse(sender)
 				dataLogged = true
 			}
-			if (textContains(text, ["data analyst", "big data", "statistics"])) {
+			if (textContains(text, ["data analy", "big data", "statistics"])) {
 				addRoletoSender(sender, "DA")
 				randomMoreInfoResponse(sender)
 				dataLogged = true
@@ -136,6 +136,7 @@ function checkCanSuggest(sender) {
 
 function addRoletoSender(sender, role) {
 	let userRoles = sessions[sender]["roles"]
+	console.log("userRoles: " + userRoles);
 	if (userRoles.length == 0) {
 		sessions[sender]["roles"] = [role]
 	}
@@ -162,7 +163,6 @@ Array.prototype.arrayContains = function(k) {
 }
 
 function textContains(text,array) {
-	console.log("textContains: " + text + " **** " + array);
 	var s = ""
 	for(var i=0;i<array.length;i++) {
 		if(text.includes(array[i])) {return true}

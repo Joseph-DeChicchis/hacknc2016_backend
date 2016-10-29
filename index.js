@@ -45,6 +45,8 @@ app.post('/webhook/', function (req, res) {
 		}
 		if (event.postback) {
 			let callback = JSON.stringify(event.postback)
+			console.log("Postback: " + callback)
+			console.log("callback: " + callback["payload"])
 			if (callback["payload"] == "GET_STARTED") {
 					send_message.text(sender, "Welcome {{first_name}}! I can help you find the perfect internship for you.")
 					continue

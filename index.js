@@ -130,6 +130,6 @@ app.listen(app.get('port'), function() {
 })
 
 app.get("/*", function(request, response, next) {}
-    console.log("Request: " + request);
+    console.log("Request: " + request)
     response.sendFile(__dirname + '/public/404.html')
 });

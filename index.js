@@ -141,7 +141,7 @@ function addRoletoSender(sender, role) {
 		sessions[sender]["roles"] = [role]
 	}
 	else if (userRoles.arrayContains(role) == false) {
-		sessions[sender]["roles"] = userRoles.push(role)
+		sessions[sender]["roles"] = userRoles.concat([role])
 	}
 }
 

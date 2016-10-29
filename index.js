@@ -44,14 +44,15 @@ app.post('/webhook/', function (req, res) {
 			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
 		}
 		if (event.postback) {
-			let callback = JSON.stringify(event.postback)
-			console.log("Postback: " + callback)
-			console.log("callback: " + event.postback["payload"])
-			if (callback["payload"] == "GET_STARTED") {
+			//let callback = JSON.stringify(event.postback)
+			//console.log("Postback: " + callback)
+			//console.log("callback: " + event.postback["payload"])
+			let payload = event.postback["payload"];
+			if (payload == "GET_STARTED") {
 					send_message.text(sender, "Welcome {{first_name}}! I can help you find the perfect internship for you.")
 					continue
 			}
-			send_message.text(sender, "Postback received: "+callback.substring(0, 200))
+			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
 			continue
 		}
 	}

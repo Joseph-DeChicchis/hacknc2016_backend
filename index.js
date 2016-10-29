@@ -42,6 +42,8 @@ app.post('/webhook/', function (req, res) {
 
 			if (sessions[sender] != null) {
 
+				randomResponse(sender)
+
 				continue
 			}
 			else {
@@ -57,7 +59,7 @@ app.post('/webhook/', function (req, res) {
 
 					continue
 				}
-				
+
 				randomResponse(sender)
 			}
 

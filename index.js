@@ -136,8 +136,10 @@ Array.prototype.arrayContains = function(k) {
 
 function textContains(text,array) {
 	console.log("textContains: " + text + " **** " + array);
-	for(var s in array) {
+	var s = ""
+	for(s in array) {
 		if (text.includes(s)) {
+			console.log("Loop: " + s);
 			return true
 		}
 	}

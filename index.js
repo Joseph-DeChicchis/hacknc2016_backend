@@ -7,6 +7,8 @@ const bodyParser = require('body-parser')
 const request = require('request')
 const app = express()
 
+var sessions = {};	// store session information
+
 app.set('port', (process.env.PORT || 5000))
 
 // parse application/x-www-form-urlencoded
@@ -37,6 +39,28 @@ app.post('/webhook/', function (req, res) {
 		let sender = event.sender.id
 		if (event.message && event.message.text) {
 			let text = event.message.text
+
+			if (sessions[sender] != null) {
+
+				continue
+			}
+			else {
+				if (true) {	// check if contains trigger word
+
+					sessions[sender] = {
+						"locations": [],
+						"roles": [],
+						"size": "",
+						"field": [],
+						"languages": []
+					}
+
+					continue
+				}
+				
+				randomResponse(sender)
+			}
+
 			if (text === 'Generic') {
 				send_message.generic(sender)
 				continue
@@ -49,7 +73,8 @@ app.post('/webhook/', function (req, res) {
 			//console.log("callback: " + event.postback["payload"])
 			let payload = event.postback["payload"];
 			if (payload == "GET_STARTED") {
-					send_message.text(sender, "Welcome {{first_name}}! I can help you find the perfect internship for you.")
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.")
+					send_message.text(sender, "What kind of internship are you looking for?")
 					continue
 			}
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
@@ -58,6 +83,11 @@ app.post('/webhook/', function (req, res) {
 	}
 	res.sendStatus(200)
 })
+
+function randomResponse(sender) {
+	let randomWords = ["OK", "I understand", "Let me see what I can do...", "I'll try my best to help you", "I got your back!", "Awesome!"]
+	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
+}
 
 // spin spin sugar
 app.listen(app.get('port'), function() {

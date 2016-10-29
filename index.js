@@ -113,7 +113,7 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
-	let userRoles = ["PM"]//sessions[sender]["roles"]
+	let userRoles = ["PM", "QA"]//sessions[sender]["roles"]
 	console.log("userRoles: " + userRoles)
 	console.log("role: " + role);
 	if (userRoles == null) {

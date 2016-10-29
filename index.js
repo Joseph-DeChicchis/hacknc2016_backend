@@ -38,7 +38,8 @@ app.post('/webhook/', function (req, res) {
 		if (event.message && event.message.text) {
 			let text = event.message.text
 			if (text === 'Generic') {
-				sendGenericMessage(sender)
+				send_message.generic(sender)
+				//sendGenericMessage(sender)
 				continue
 			}
 			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")

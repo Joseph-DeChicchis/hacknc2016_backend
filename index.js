@@ -68,7 +68,7 @@ app.post('/webhook/', function (req, res) {
 				send_message.generic(sender)
 				continue
 			}
-			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"", [])
+			send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
 		}
 		if (event.postback) {
 			//let callback = JSON.stringify(event.postback)
@@ -76,8 +76,9 @@ app.post('/webhook/', function (req, res) {
 			//console.log("callback: " + event.postback["payload"])
 			let payload = event.postback["payload"];
 			if (payload == "GET_STARTED") {
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"Project/Product Manager", "payload": "PM"}])
-					//send_message.quickReplies(sender, "Here are some suggestions", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"Project/Product Manager", "payload": "PM"}])
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?")
+					send_message.quickReplies(sender, "Here are some suggestions", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"}])
+					//{"content_type":"text", "title":"Project/Product Manager", "payload": "PM"}
 					continue
 			}
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
@@ -89,7 +90,7 @@ app.post('/webhook/', function (req, res) {
 
 function randomResponse(sender) {
 	let randomWords = ["OK", "I understand", "Let me see what I can do...", "I'll try my best to help you", "I got your back!", "Awesome!"]
-	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)], [])
+	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
 }
 
 // spin spin sugar

@@ -52,34 +52,45 @@ app.post('/webhook/', function (req, res) {
 		//randomResponse(sender)
 		if (event.message && event.message.text) {
 			let text = event.message.text.toLowerCase()
-			//customer support agent", "android angineer", "software engineer in quality"
-				//, "product manager", "software engineer", "product management", "software developer", "big data engineer"
-	//			, "quality assurence
-			if (textContains(text, ["software", "big data", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
+
+			var dataLogged = false
+
+			if (textContains(text, ["software", "artificial intelligence", "machine learning", "ios", "web", "mobile", "mac", "windows", "linux"])) {
 				addRoletoSender(sender, "SE")
-				send_message.text(sender, "Got it. Any other interests? If not, tell us other things about where you want to intern")
+				randomMoreInfoResponse(sender)
+				dataLogged = true
 			}
-			else if (textContains(text, ["quality"])) {
+			if (textContains(text, ["quality"])) {
 				addRoletoSender(sender, "QA")
-				send_message.text(sender, "Great! Tell us more about what you're looking for")
+				randomMoreInfoResponse(sender)
+				dataLogged = true
 			}
-			else if (textContains(text, ["user interface", "user experience", "ux", "design"])) {
+			if (textContains(text, ["user interface", "user experience", "ux", "design"])) {
 				addRoletoSender(sender, "UI")
-				send_message.text(sender, "Awesome! Anything else")
+				randomMoreInfoResponse(sender)
+				dataLogged = true
 			}
-			else if (textContains(text, ["pm", "project management", "product management"])) {
+			if (textContains(text, ["pm", "project management", "product management"])) {
 				addRoletoSender(sender, "PM")
-				send_message.text(sender, "Very cool. What else are you looking for?")
+				randomMoreInfoResponse(sender)
+				dataLogged = true
 			}
-			else if (text === "help") {
-				send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!")
+			if (textContains(text, ["data analyst", "big data", "statistics"])) {
+				addRoletoSender(sender, "DA")
+				randomMoreInfoResponse(sender)
+				dataLogged = true
 			}
-			else if (text === 'generic') {
-				send_message.generic(sender)
-				continue
-			}
-			else {
-				send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+			if (dataLogged == false) {
+				if (text === "help") {
+					send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!")
+				}
+				else if (text === 'generic') {
+					send_message.generic(sender)
+				}
+				else {
+					send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+				}
+
 				continue
 			}
 		}
@@ -90,20 +101,16 @@ app.post('/webhook/', function (req, res) {
 			let payload = event.postback["payload"];
 			console.log("Payload: "+ payload);
 			if (payload == "GET_STARTED") {
-					//send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"QA Engineer", "payload": "QA"}])
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nWhat kind of internship are you looking for?")
+					send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"PM", "payload": "PM"}])
+					//send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nWhat kind of internship are you looking for?")
 			}
 			else if (payload == "SE") {
 				addRoletoSender(sender, "SE")
-				send_message.text(sender, "Got it. Any other interests?")
+				randomMoreInfoResponse(sender)
 			}
 			else if (payload == "PM") {
 				addRoletoSender(sender, "PM")
-				send_message.text(sender, "Got it. Any other interests?")
-			}
-			else if (payload == "QA") {
-				addRoletoSender(sender, "QA")
-				send_message.text(sender, "Got it. Any other interests?")
+				randomMoreInfoResponse(sender)
 			}
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
 		}
@@ -139,6 +146,11 @@ function addRoletoSender(sender, role) {
 
 function randomResponse(sender) {
 	let randomWords = ["OK", "I understand", "Let me see what I can do...", "I'll try my best to help you", "I got your back!", "Awesome!"]
+	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
+}
+
+function randomMoreInfoResponse(sender) {
+	let randomWords = ["Got it. Any other interests? If not, tell us other things about where you want to intern", "Great! Tell us more about what you're looking for", "Awesome! Anything else?", "Very cool. What else are you looking for?"]
 	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
 }
 

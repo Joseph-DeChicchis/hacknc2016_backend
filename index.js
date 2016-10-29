@@ -112,7 +112,7 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
-	if (sessions[sender]["roles"].indexOf(role) == -1) {
+	if (sessions[sender]["roles"].includes(role) == -1) {
 		sessions[sender]["roles"] = sessions[sender]["roles"].push(role)
 	}
 }
@@ -120,6 +120,15 @@ function addRoletoSender(sender, role) {
 function randomResponse(sender) {
 	let randomWords = ["OK", "I understand", "Let me see what I can do...", "I'll try my best to help you", "I got your back!", "Awesome!"]
 	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
+}
+
+function includes(k) {
+  for(var i=0; i < this.length; i++){
+    if( this[i] === k || ( this[i] !== this[i] && k !== k ) ){
+      return true;
+    }
+  }
+  return false;
 }
 
 // spin spin sugar

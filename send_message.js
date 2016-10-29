@@ -1,3 +1,5 @@
+const request = require('request')
+
 module.exports = {
   text: function (recipientId, messageText) {
     var messageData = {

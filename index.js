@@ -1,6 +1,6 @@
 'use strict'
 
-var send_message = require('send_message');
+var send_message = require('./send_message');
 
 const express = require('express')
 const bodyParser = require('body-parser')

@@ -54,7 +54,8 @@ app.post('/webhook/', function (req, res) {
 						"roles": [],
 						"size": "",
 						"field": [],
-						"languages": []
+						"languages": [],
+						"platforms": []
 					}
 
 					continue
@@ -75,8 +76,8 @@ app.post('/webhook/', function (req, res) {
 			//console.log("callback: " + event.postback["payload"])
 			let payload = event.postback["payload"];
 			if (payload == "GET_STARTED") {
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.")
-					send_message.text(sender, "What kind of internship are you looking for?")
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?")
+					send_message.quickReplies(sender, [{"content_type":"text", "title":"Software Engineer", "payload", "SE"},{"content_type":"text", "title":"Project/Product Manager", "payload", "PM"}])
 					continue
 			}
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))

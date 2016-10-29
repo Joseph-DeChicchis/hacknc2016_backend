@@ -64,6 +64,20 @@ module.exports = {
   callSendAPI(messageData);
   }
 
+  // quickReplies
+  quickReplies: function (recipientId, replies) {
+    var messageData = {
+    recipient: {
+      id: recipientId
+    },
+    message: {
+      quick_replies: replies
+    }
+  };
+
+  callSendAPI(messageData);
+  }
+
   // Send another message
 };
 

@@ -92,7 +92,7 @@ app.post('/webhook/', function (req, res) {
 })
 
 function checkCanSuggest(sender) {
-	console.log("Session: " + sessions[sender]);
+	console.log("Session: " + JSON.stringify(sessions[sender]));
 	if (sessions[sender]["locations"].length == 0) { return false }
 	if (sessions[sender]["roles"].length == 0) { return false }
 	if (sessions[sender]["size"] == "") { return false }
@@ -105,7 +105,7 @@ function checkCanSuggest(sender) {
 
 function addRoletoSender(sender, role) {
 	if (sessions[sender][roles].indexOf(role) == -1) {
-		sessions[sender][roles] = sessions[sender][roles].push(role)
+		sessions[sender][roles] = sessions[sender][role].push(role)
 	}
 }
 

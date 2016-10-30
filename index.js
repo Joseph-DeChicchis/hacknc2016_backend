@@ -230,7 +230,7 @@ app.post('/webhook/', function (req, res) {
 function suggestToSender(sender, force) {
 	if (checkCanSuggest(sender) == true || force) {
 		let session = sessions[sender];
-		if (session["suggested"] == false) {
+		if (session["suggested"] == false || force) {
 			session["suggested"] = true;
 			send_message.text(sender, "OK. Let me search for internships that match your interests...");
 

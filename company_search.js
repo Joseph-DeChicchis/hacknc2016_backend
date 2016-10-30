@@ -4,35 +4,33 @@ var company_data = JSON.parse(fs.readFileSync('data.json', 'utf8'));
 
 module.exports = {
 
-  findCompanies: function (size, languages, roles, platforms, locations) {
+  findCompanies: function (size, languages, roles, platforms, locations, fields) {
     //console.log("company_data: " + JSON.stringify(company_data));
 
     console.log("findCompanies");
 
-    var companies = scoreCompanies(size, languages, roles, platforms, locations)
+    var companies = scoreCompanies(size, languages, roles, platforms, locations, fields)
 
 
     companies = companies.sort(Comparator);
 
     //console.log(companies);
-    /*
+
     for(var i=0;i<companies.length;i++) {
-      console.log("Name: " + companies[i][0] + " | Score: " + companies[i][1] + " | Size: " + companies[i][2] + " | Languages: " + companies[i][3] + " | Roles: " + companies[i][4] + " | Platform: " + companies[i][5] + " | Locations: " + companies[i][6]);
-    }*/
-
-
+      console.log("Name: " + companies[i][0] + " | Score: " + companies[i][1] + " | Size: " + companies[i][2] + " | Languages: " + companies[i][3] + " | Roles: " + companies[i][4] + " | Platform: " + companies[i][5] + " | Locations: " + companies[i][6]+ " | Field: " + companies[i][7]);
+    }
 
     console.log(companies.length);
 
     console.log("---------------------");
-    console.log(" | Size: " + size + " | Languages: " + languages + " | Roles: " + roles + " | Platform: " + platforms + " | Locations: " + locations);
+    console.log(" | Size: " + size + " | Languages: " + languages + " | Roles: " + roles + " | Platform: " + platforms + " | Locations: " + locations+ " | Fields: " + fields);
 
     return companies
   }
 
 };
 
-function scoreCompanies(size, languages, roles, platforms, locations) {
+function scoreCompanies(size, languages, roles, platforms, locations, fields) {
   console.log("scoreCompanies");
   console.log("Number of companies: " + company_data.length);
 
@@ -49,6 +47,7 @@ function scoreCompanies(size, languages, roles, platforms, locations) {
       //console.log("Location parse: " + company_data[i]["locations"][j].split(",")[0].toLowerCase());// + [company_data[i]["languages"][j]);
       company_locations.push(company_data[i]["locations"][j].split(",")[0].toLowerCase());
     }
+    var company_field = company_data[i]["type"];
     //console.log("Name: " + company_name + " | Size: " + company_size + " | Languages: " + company_languages + " | Roles: " + company_roles + " | Platform: " + company_platform + " | Locations: " + company_locations);
 
     var score = 0;
@@ -66,9 +65,11 @@ function scoreCompanies(size, languages, roles, platforms, locations) {
     for (var z=0;z<locations.length;z++) {
       if (company_locations.arrayContains(locations[z])) {score++}
     }
+    if (company_field != "" && fields.arrayContains(company_field)) {score = score + 2}
+    if (company_field != "" && !fields.arrayContains(company_field)) {score = score - 2}
     //"medium",["java", "python"],["SE"],["backend"],["mountain view"]
     //console.log("Name: " + company_name + " **** Score: " + score + " ****");
-    companies.push([company_name,score,company_size,company_languages,company_roles,company_platform,company_locations]);
+    companies.push([company_name,score,company_size,company_languages,company_roles,company_platform,company_locations,company_field]);
   }
 
   return companies //return array of scroed company names and URLs

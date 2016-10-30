@@ -197,7 +197,7 @@ app.post('/webhook/', function (req, res) {
 			send_message.text(sender, "OK. Let me search for internships that match your interests...")
 			let session = sessions[sender];
 			//size, languages, roles, platforms, locations
-			company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"]);
+			company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
 		}
 	}
 	res.sendStatus(200);
@@ -364,7 +364,7 @@ app.post('/api/', function (req, res) {
 	//let messaging_events = req.body.entry[0].messaging;
 	var user_preferences = req.body;
 	console.log(user_preferences);
-	var companies = company_search.findCompanies(user_preferences["size"],user_preferences["languages"],user_preferences["roles"],user_preferences["platforms"],user_preferences["locations"]);
+	var companies = company_search.findCompanies(user_preferences["size"],user_preferences["languages"],user_preferences["roles"],user_preferences["platforms"],user_preferences["locations"],user_preferences["fields"]);
 	res.send({redirect: '/results', companies: companies});
 });
 

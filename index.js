@@ -51,15 +51,11 @@ app.post('/webhook/', function (req, res) {
 			};
 		}
 
-		console.log("IM HERE HERE HERE");
-
 		if (event.message && event.message.text) {
 			let text = event.message.text.toLowerCase();
 			let textArray = event.message.text.toLowerCase().split(" ");
 
 			var dataLogged = false;
-
-			console.log("IM HERE");
 
 			// Look for roles
 			if (textArrayContains(textArray, ["software", "ios", "web", "mobile", "mac", "windows", "linux", "ai"]) || textContains(text, ["artificial intelligence", "machine learning"])) {
@@ -83,13 +79,11 @@ app.post('/webhook/', function (req, res) {
 				dataLogged = true;
 			}
 
-			console.log("HERE TOO");
-
 			// Look for languages
 			if (checkForLanguages(textArray, sender)) {
 				dataLogged = true;
 			}
-			console.log("ININININININ");
+
 			// Check for cities
 			if (checkForCities(text, sender)) {
 				dataLogged = true;
@@ -108,8 +102,6 @@ app.post('/webhook/', function (req, res) {
 				sessions[sender]["size"] = "any";
 				dataLogged = true;
 			}
-
-			console.log("YOLO");
 
 			// Look for platforms
 			if (textArrayContains(textArray, ["ios", "android", "mobile"])) {
@@ -300,6 +292,13 @@ function textArrayContains(textArray,array) {
 // spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'));
+
+	fs.readFile("cities.txt", 'utf8', function (err,data) {
+  	if (err) {
+    	return console.log(err);
+  	}
+  	console.log(data);
+	});
 });
 
 // static website code

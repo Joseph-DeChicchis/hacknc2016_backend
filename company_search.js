@@ -17,7 +17,7 @@ module.exports = {
     //console.log(companies);
 
     for(var i=0;i<companies.length;i++) {
-      console.log("Name: " + companies[i][0] + " | Score: " + companies[i][1] + " | Size: " + companies[i][2] + " | Languages: " + companies[i][3] + " | Roles: " + companies[i][4] + " | Platform: " + companies[i][5] + " | Locations: " + companies[i][6]+ " | Field: " + companies[i][7]);
+      console.log("Name: " + companies[i][0] + " | Score: " + companies[i][1] + " | Link: " + companies[i][2]);
     }
 
     console.log(companies.length);
@@ -48,6 +48,7 @@ function scoreCompanies(size, languages, roles, platforms, locations, fields) {
       company_locations.push(company_data[i]["locations"][j].split(",")[0].toLowerCase());
     }
     var company_field = company_data[i]["type"];
+    var company_link = company_data[i]["link"];
     //console.log("Name: " + company_name + " | Size: " + company_size + " | Languages: " + company_languages + " | Roles: " + company_roles + " | Platform: " + company_platform + " | Locations: " + company_locations);
 
     var score = 0;
@@ -69,7 +70,7 @@ function scoreCompanies(size, languages, roles, platforms, locations, fields) {
     if (company_field != "" && !fields.arrayContains(company_field)) {score = score - 2}
     //"medium",["java", "python"],["SE"],["backend"],["mountain view"]
     //console.log("Name: " + company_name + " **** Score: " + score + " ****");
-    companies.push([company_name,score,company_size,company_languages,company_roles,company_platform,company_locations,company_field]);
+    companies.push([company_name,score,company_link]);
   }
 
   return companies //return array of scroed company names and URLs

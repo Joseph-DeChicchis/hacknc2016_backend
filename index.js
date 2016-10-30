@@ -180,7 +180,7 @@ app.post('/webhook/', function (req, res) {
 					randomHiResponse(sender);
 				}
 				else {
-					send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"");
+					send_message.text(sender, "Sorry, I don't know what you mean by \"" + text.substring(0, 200) + "\"");
 				}
 
 				/*else if (text === 'generic') {
@@ -216,7 +216,8 @@ app.post('/webhook/', function (req, res) {
 			if (session["suggested"] == false) {
 				session["suggested"] = true;
 				send_message.text(sender, "OK. Let me search for internships that match your interests...");
-				company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
+				var companies = company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
+				//companies
 			}
 		}
 	}

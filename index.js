@@ -318,6 +318,7 @@ app.listen(app.get('port'), function() {
 app.post('/api/', function (req, res) {
   console.log("api call recieved");
 	//let messaging_events = req.body.entry[0].messaging;
+	res.send("hello world");
 });
 
 // static website code

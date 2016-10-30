@@ -329,16 +329,16 @@ function addLanguage(sender, language) {
 
 function checkForCities(text, sender) {
 
-	var languagePresent = false
+	var cityPresent = false
 
 	for(var i=0;i<citiesArray.length;i++) {
 		if (text.includes(citiesArray[i].toLowerCase())) {
 			addCity(sender, citiesArray[i].toLowerCase());
-			languagePresent = true;
+			cityPresent = true;
 		}
 	}
 
-	return languagePresent
+	return cityPresent
 }
 
 function addCity(sender, city) {

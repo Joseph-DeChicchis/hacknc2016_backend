@@ -180,7 +180,7 @@ app.post('/webhook/', function (req, res) {
 				else if (text == "suggest") {
 					suggestToSender(sender, true)
 				}
-				else if (textArrayContains(textArray, ["hi", "yo", "hello"])) {
+				else if (textArrayContains(textArray, ["hi", "yo", "hello", "hey"])) {
 					randomHiResponse(sender);
 				}
 				else {
@@ -358,7 +358,7 @@ function randomResponse(sender) {
 }
 
 function randomHiResponse(sender) {
-	let randomWords = ["Hi there!", "Yo", "I'm here to help", "I got your back!"]
+	let randomWords = ["Hi there!", "I'm here to help", "I got your back!"]
 	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
 }
 

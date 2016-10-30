@@ -1885,10 +1885,8 @@
          "Juniper, HP"
       ],
       "positions":[
-         "QA",
          "SE",
-         "DA",
-         "PM"
+         "DA"
       ],
       "type":"",
       "platform":"mobile"
@@ -2137,10 +2135,7 @@
    {
       "size":"medium",
       "languages":[
-         "c#",
-         "python",
-         "java",
-         "ruby"
+
       ],
       "link":"https://www.linkedin.com/jobs2/cap/view/203557263?pathWildcard=203557263&trk=job_capjs",
       "company":"LinkedIn",
@@ -2420,6 +2415,1213 @@
 
       ],
       "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "c#",
+         "python",
+         "java",
+         "assembly",
+         "lua",
+         "perl",
+         "sql"
+      ],
+      "link":"http://www.nvidia.com/object/universityrecruiting-internships.html",
+      "company":"Nvidia",
+      "locations":[
+         "Santa Clara, CA",
+         "Bellevue, WA",
+         "Beaverton, OR",
+         "Westford, MA",
+         "Morganville, NJ",
+         "Austin, TX",
+         "Fort Collins, CO",
+         "Boulder, CO",
+         "Huntsville, AL",
+         "Durham, NC"
+      ],
+      "positions":[
+         "QA",
+         "SE",
+         "PM",
+         "DA"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"large",
+      "languages":[
+         "java",
+         "lua"
+      ],
+      "link":"http://www.oracle.com/us/corporate/careers/college/intern-at-oracle/product-development/index.html",
+      "company":"Oracle",
+      "locations":[
+         "INDEX, FO"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "sql"
+      ],
+      "link":"https://jobs.lever.co/palantir/72018fcf-e777-4696-956c-a764966a4c75",
+      "company":"Palantir",
+      "locations":[
+         "Palo Alto, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://jobsearch.paypal-corp.com/jobs/199438/San-Jose-California-Software-Engineer-Intern-Undergrad?lang=en-US",
+      "company":"PayPal",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java"
+      ],
+      "link":"https://careers.pinterest.com/careers/details/software-engineer-intern_san-francisco_188210",
+      "company":"Pinterest",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://docs.google.com/forms/d/e/1FAIpQLSeYPDfG8_MuLj2ISWZ-RUbZRx3gIniOdoKPzkuA8zXSAkTYqg/viewform",
+      "company":"Postmates",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://careers.priceline.com/jobsearch/job-details/intern-summer-java-development/oC2I3fw9/1/",
+      "company":"Priceline",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE",
+         "PM"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java"
+      ],
+      "link":"https://boards.greenhouse.io/purestorage/jobs/254475#.V-huepMrKCU",
+      "company":"Pure Storage",
+      "locations":[
+         "Mountain View, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"software",
+      "platform":"mobile"
+   },
+   {
+      "size":"large",
+      "languages":[
+         "java",
+         "perl"
+      ],
+      "link":"https://jobs.qualcomm.com/public/jobDetails.xhtml?requisitionId=1946651",
+      "company":"Qualcomm",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "lua",
+         "sql"
+      ],
+      "link":"https://boards.greenhouse.io/qualtrics/jobs/36397#.V9r5WJMrKCU",
+      "company":"Qualtrics",
+      "locations":[
+         "Java, PH"
+      ],
+      "positions":[
+         "SE",
+         "PM"
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://www.quantcast.com/careers/05b31006-4f50-4a94-8931-dc7bfed4fd5b/",
+      "company":"Quantcast",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"https://quantshield.workable.com/jobs/344884",
+      "company":"QuantShield",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"all"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "objective-c",
+         "java",
+         "lua"
+      ],
+      "link":"https://www.quora.com/careers/software_engineer_intern",
+      "company":"Quora",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE",
+         "DA"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://www.redfin.com/about/jobs/description/software-developer-intern-seattle--san-francis-oVEN3fw9?from=intern",
+      "company":"Redfin",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"real estate",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://www.riotgames.com/internship-info/243022",
+      "company":"Riot Games",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"entertainment",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "sql"
+      ],
+      "link":"http://salesforce.careermount.com/career/49172/Summer-2017-Intern-Software-Engineer-Us-California-San-Francisco-Hq-Us-California-San-Mateo-Us-Colorado-Louisville-Us-Georgia-Atlanta-Us-Indiana-Indianapolis-Us-Washington-Seattle",
+      "company":"Salesforce",
+      "locations":[
+         "Atlanta, US",
+         "Louisville, US",
+         "San Francisco, CA",
+         "Seattle, US",
+         "San Mateo, US"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"software",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://sensus.com/careers/current-openings/",
+      "company":"Sensus",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"https://www.shopify.com/careers/developer-intern-the-winternship-2017-918cd8",
+      "company":"Shopify",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"software",
+      "platform":"all"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://www.shutterflyinc.com/jobs.html?p=job%2Fo6CR2fwl",
+      "company":"Shutterfly",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://boards.greenhouse.io/siftscience/jobs/11159#.V8emgpMrKCU",
+      "company":"Sift Science",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "lua"
+      ],
+      "link":"https://jobs.lever.co/spacex-university/56134798-c70b-4ae7-8ce3-8c6d6924b821",
+      "company":"SpaceX",
+      "locations":[
+         "Seattle, WA",
+         "Washington, DC"
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java",
+         "ruby"
+      ],
+      "link":"https://www.sqreen.io/jobs/intern-docker-software-engineer.html",
+      "company":"Sqreen",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "objective-c",
+         "python",
+         "java",
+         "ruby"
+      ],
+      "link":"https://www.smartrecruiters.com/Square/95644079",
+      "company":"Square",
+      "locations":[
+         "Atlanta, NY",
+         "San Francisco, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://www.squarespace.com/about/careers/?gh_jid=238727",
+      "company":"Squarespace",
+      "locations":[
+         "New York, NY"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"software",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"http://www.stackfolio.com/careers/",
+      "company":"Stackfolio",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "c#",
+         "java",
+         "sql"
+      ],
+      "link":"https://www.statefarm.com/careers/become-an-intern/IT-internships/software-developer-internships",
+      "company":"Statefarm",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://stripe.com/jobs/positions/engineer-intern",
+      "company":"Stripe",
+      "locations":[
+
+      ],
+      "positions":[
+         "DA"
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "sql"
+      ],
+      "link":"https://studysoup.com/marketing/company/careers",
+      "company":"Study Soup",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "lua"
+      ],
+      "link":"https://tableau.rolepoint.com/?shorturl=ufog8#job/ahBzfnJvbGVwb2ludC1wcm9kchALEgNKb2IYgIDglf6fvggM",
+      "company":"Tableau",
+      "locations":[
+         "Seattle, WA",
+         "Washington, United States",
+         "California, United States",
+         "New York, United States",
+         "Columbia, United States"
+      ],
+      "positions":[
+         "PM"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://teckpert.com/jobs/mobile-developer-internship/",
+      "company":"TeckPert",
+      "locations":[
+         "Miami, FL"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "objective-c",
+         "java",
+         "swift"
+      ],
+      "link":"http://tendigi.com/career/mobile-engineer-intern/",
+      "company":"Tendigi",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "c#",
+         "python",
+         "java",
+         "ruby",
+         "sql"
+      ],
+      "link":"https://toc.taleo.net/careersection/intern_all/jobdetail.ftl?job=16001327",
+      "company":"Thomson Reuters",
+      "locations":[
+         "Oracle, DB"
+      ],
+      "positions":[
+         "SE",
+         "DA"
+      ],
+      "type":"entertainment",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://www.thoughtspot.com/careers/listing?gh_jid=87121",
+      "company":"ThoughtSpot",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://boards.greenhouse.io/thumbtack/jobs/2570#.V8eujpMrKCU",
+      "company":"Thumbtack",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE",
+         "DA",
+         "PM"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://tophat.com/company/careers/?p=apply",
+      "company":"Top Hat",
+      "locations":[
+         "Denver, CO",
+         "Toronto, ON"
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "sql"
+      ],
+      "link":"https://boards.greenhouse.io/tripadvisor/jobs/271020#.V8ewG5MrKCU",
+      "company":"TripAdvisor",
+      "locations":[
+         "Ewing, NJ",
+         "Las Vegas, NV",
+         "Boston, MA",
+         "El Segundo, CA",
+         "Needham, MA",
+         "New York, NY",
+         "Palo Alto, CA",
+         "Oxford, UK",
+         "San Francisco, CA",
+         "Princeton, NJ"
+      ],
+      "positions":[
+         "SE",
+         "PM",
+         "DA"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "sql"
+      ],
+      "link":"https://boards.greenhouse.io/tumblr/jobs/19938?gh_jid=19938#.V-hxdZMrKCU",
+      "company":"Tumblr",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE",
+         "DA"
+      ],
+      "type":"entertainment",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "lua",
+         "sql"
+      ],
+      "link":"https://boards.greenhouse.io/twilio/jobs/276983#.V9sBEZMrKCU",
+      "company":"Twilio",
+      "locations":[
+         "San Francisco, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java",
+         "lua",
+         "bash",
+         "ruby",
+         "sql"
+      ],
+      "link":"https://careers.twitter.com/en/work-for-twitter/university-application-full-time-internship.html",
+      "company":"Twitter",
+      "locations":[
+         "Los Angeles, CA",
+         "Seattle, WA",
+         "Detroit, MI",
+         "Miami, FL",
+         "Boston, MA",
+         "Atlanta, GA",
+         "Chicago, IL",
+         "New York, NY",
+         "Boulder, CO",
+         "Toronto, ON",
+         "San Francisco, CA"
+      ],
+      "positions":[
+         "SE",
+         "DA",
+         "PM"
+      ],
+      "type":"software",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java",
+         "lua",
+         "sql"
+      ],
+      "link":"https://www.uber.com/careers/list/25162/",
+      "company":"Uber",
+      "locations":[
+         "Fayetteville, NC",
+         "Montgomery, AL",
+         "Columbia, SC",
+         "Fayetteville, AR",
+         "Phoenix, AZ",
+         "Springfield, IL",
+         "Santa Monica, CA",
+         "Reading, PA",
+         "Peoria, IL",
+         "Boston, MA",
+         "Hattiesburg, MS",
+         "Birmingham, AL",
+         "Charleston, SC",
+         "Columbia, MO",
+         "Athens, GR",
+         "Greenville, SC",
+         "Wilmington, NC",
+         "Asheville, NC",
+         "Morgantown, WV",
+         "North East, UK",
+         "Chicago, IL",
+         "Columbus, OH",
+         "San Francisco, CA",
+         "Charleston, WV",
+         "Dover, DE",
+         "Seattle, WA",
+         "Lafayette, LA",
+         "Mobile, AL",
+         "Portland, ME",
+         "Birmingham, UK",
+         "Bloomington, IN",
+         "Bowling Green, KY",
+         "Pensacola, FL",
+         "Lancaster, PA",
+         "San Juan, PR",
+         "Huntsville, AL"
+      ],
+      "positions":[
+         "QA",
+         "SE",
+         "PM",
+         "DA"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "lua",
+         "perl"
+      ],
+      "link":"http://www.ultimatesoftware.com/internships",
+      "company":"Ultimate Software",
+      "locations":[
+         "Weston, FL",
+         "Atlanta, GA",
+         "Toronto, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"http://uptake.com/jobs/?gh_jid=275862",
+      "company":"Uptake",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://search.usaajobs.com/us/en-us/Job-Details/Intern-IT-College-Hire-Program-Job/San-Antonio-TX/XjdP-jf1080-ct106309-jid63185248",
+      "company":"USAA",
+      "locations":[
+         "San Antonio, TX",
+         "Plano, TX"
+      ],
+      "positions":[
+         "QA"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java"
+      ],
+      "link":"https://www.appone.com/MainInfoReq.asp?R_ID=972772&B_ID=10&fid=1&Adid=&ssbgcolor=&SearchScreenID=2062&CountryID=3&LanguageID=2",
+      "company":"Vectorworks",
+      "locations":[
+         "Columbia, MD"
+      ],
+      "positions":[
+         "QA",
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://collegerelations-viacom.icims.com/jobs/5024/viacom-%26-bet-spring-2017-technology-internships/job",
+      "company":"Viacom",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"entertainment",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"https://jobs.visa.com/job/Singapore-Intern%2C-Software-Engineering-Job/357649400/",
+      "company":"Visa",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"all"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "perl"
+      ],
+      "link":"http://visualbi.com/javascript-developer-intern/",
+      "company":"Visualbi",
+      "locations":[
+         "POST, PR",
+         "Plano, TX"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://careers.vmware.com/category/internship-jobs/1567/22673/1",
+      "company":"Vmware",
+      "locations":[
+         "Washington, United States",
+         "Colorado, United States",
+         "California, United States",
+         "Columbia, United States"
+      ],
+      "positions":[
+         "SE",
+         "PM"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://www.walmartlabs.com/jobs/",
+      "company":"Walmart Labs",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"http://www.wayfair.com/careers#job=oHmM3fwC",
+      "company":"Wayfair",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"all"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java",
+         "lua"
+      ],
+      "link":"https://wefunder.com/jobs/internships",
+      "company":"WeFunder",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "c#",
+         "objective-c",
+         "java",
+         "sql"
+      ],
+      "link":"https://www.facebook.com/careers/jobs/a0I1200000JIbXhEAL/",
+      "company":"WhatsApp",
+      "locations":[
+         "Mountain View, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://app.jobvite.com/CompanyJobs/Careers.aspx?k=Apply&c=qdZaVfw1&j=owyM3fwD",
+      "company":"Willow Tree",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://www.workday.com/company/careers/job_description.php?id=JR14497#.V8ORJJgrKUk",
+      "company":"Workday",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://www.workiva.com/careers/11616/apply",
+      "company":"Workiva",
+      "locations":[
+         "Ames, IA"
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "c#",
+         "java",
+         "lua",
+         "sql"
+      ],
+      "link":"https://www.xero.com/us/about/careers/job/oBKN3fwV/",
+      "company":"Xero",
+      "locations":[
+         "San Francisco, US"
+      ],
+      "positions":[
+         "QA",
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"large",
+      "languages":[
+         "python",
+         "java",
+         "perl",
+         "ruby",
+         "sql"
+      ],
+      "link":"https://tas-yahoo.taleo.net/careersection/yahoo_us_cs/jobdetail.ftl?job=1644261",
+      "company":"Yahoo",
+      "locations":[
+         "Ruby, LA"
+      ],
+      "positions":[
+         "SE",
+         "DA"
+      ],
+      "type":"",
+      "platform":"web"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://jobs.lever.co/yelp/acd14f8c-12ef-44ae-bba0-d9ddaf9a54c8/apply",
+      "company":"Yelp",
+      "locations":[
+         "San Francisco, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java",
+         "lua"
+      ],
+      "link":"https://boards.greenhouse.io/yext/jobs/262395?gh_jid=262395#.V8iReJgrKUk",
+      "company":"Yext",
+      "locations":[
+         "New York, NY"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"software",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://jobs.jobvite.com/zappos/jobs/internships?t=Intern",
+      "company":"Zappos",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://jobs.jobvite.com/careers/zendesk/job/oUxL3fwZ/apply?__jvst=Zendesk%20Career%20Site",
+      "company":"Zendesk",
+      "locations":[
+
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+
+      ],
+      "link":"https://zenmate-jobs.personio.de/job/6711?language=en#apply",
+      "company":"ZenMate",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"all"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"http://www.zillow.com/jobs/apply?j=o3QK3fwq",
+      "company":"Zillow",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "java"
+      ],
+      "link":"https://www.zscaler.com/internships?p=job%2FoyZM3fw6%2Fapply",
+      "company":"Zscaler",
+      "locations":[
+
+      ],
+      "positions":[
+
+      ],
+      "type":"",
+      "platform":"mobile"
+   },
+   {
+      "size":"medium",
+      "languages":[
+         "python",
+         "java",
+         "ruby",
+         "sql"
+      ],
+      "link":"https://www.zynga.com/careers/positions/internco-op-software-engineer-current-students-summer-2017",
+      "company":"Zynga",
+      "locations":[
+         "Ruby, PH",
+         "San Francisco, CA"
+      ],
+      "positions":[
+         "SE"
+      ],
+      "type":"entertainment",
       "platform":"mobile"
    }
 ]

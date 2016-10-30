@@ -53,8 +53,8 @@ function scoreCompanies(size, languages, roles, platforms, locations, fields) {
 
     var score = 0;
 
-    if (company_size != "" && company_size == size) {score++}
-    if (company_size != "" && company_size != size) {score--}
+    if (company_size != "" && company_size == size && size != "any") {score++}
+    if (company_size != "" && company_size != size && size != "any") {score--}
     for (var x=0;x<languages.length;x++) {
       if (company_languages.arrayContains(languages[x])) {score++}
     }

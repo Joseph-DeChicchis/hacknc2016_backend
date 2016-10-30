@@ -10,6 +10,7 @@ const fs = require('fs');
 const app = express();
 
 var sessions = {};	// store session information
+var citiesArray = [];
 
 app.set('port', (process.env.PORT || 5000));
 
@@ -156,7 +157,7 @@ app.post('/webhook/', function (req, res) {
 				dataLogged = true;
 			}
 
-			if (dataLogged == true) {
+			if (dataLogged == true && suggestToSender(sender) == false) {
 				randomMoreInfoResponse(sender);
 			}
 			else {
@@ -211,27 +212,38 @@ app.post('/webhook/', function (req, res) {
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
 		}
 
-		if (checkCanSuggest(sender) == true) {
-			let session = sessions[sender];
-			if (session["suggested"] == false) {
-				session["suggested"] = true;
-				send_message.text(sender, "OK. Let me search for internships that match your interests...");
-				var companies = company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
-
-				wait(500);
-
-				send_message.text(sender, "Here are the top 5 internships that match your interests! Good luck!");
-
-				for(var j=0;j<5;j++) {
-					//recipientId, link, name, subname
-					wait(250);
-        	send_message.generic(sender,companies[j][2],companies[j][0],"")
-        }
-			}
-		}
+		suggestToSender(sender);
 	}
 	res.sendStatus(200);
 })
+
+function suggestToSender(sender) {
+	if (checkCanSuggest(sender) == true) {
+		let session = sessions[sender];
+		if (session["suggested"] == false) {
+			session["suggested"] = true;
+			send_message.text(sender, "OK. Let me search for internships that match your interests...");
+
+			wait(250);
+
+			var companies = company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
+
+			wait(500);
+
+			send_message.text(sender, "Here are the top 5 internships that match your interests! Good luck!");
+
+			for(var j=0;j<5;j++) {
+				//recipientId, link, name, subname
+				wait(250);
+				send_message.generic(sender,companies[j][2],companies[j][0],"")
+			}
+		}
+
+		return true
+	}
+
+	return false
+}
 
 function checkCanSuggest(sender) {
 	console.log("Session: " + JSON.stringify(sessions[sender]))
@@ -309,20 +321,14 @@ function checkForCities(text, sender) {
 
 	var languagePresent = false
 
-	fs.readFile("cities.txt", 'utf8', function (err,data) {
-  	if (err) {
-    	return console.log(err);
-  	}
-		let citiesArray = data.split("\n");
-		for(var i=0;i<citiesArray.length;i++) {
-			if (text.includes(citiesArray[i].toLowerCase())) {
-				addCity(sender, citiesArray[i].toLowerCase());
-				languagePresent = true;
-			}
+	for(var i=0;i<citiesArray.length;i++) {
+		if (text.includes(citiesArray[i].toLowerCase())) {
+			addCity(sender, citiesArray[i].toLowerCase());
+			languagePresent = true;
 		}
+	}
 
-		return languagePresent
-	});
+	return languagePresent
 }
 
 function addCity(sender, city) {
@@ -386,6 +392,13 @@ function wait(ms){
 // spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'));
+
+	fs.readFile("cities.txt", 'utf8', function (err,data) {
+  	if (err) {
+    	return console.log(err);
+  	}
+		citiesArray = data.split("\n");
+	});
 
 	//size, languages, roles, platforms, locations
 	//company_search.findCompanies("large",["java", "python", "c++"],["SE"],["mobile"],["mountain view, new york, seattle"]);

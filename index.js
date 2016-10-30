@@ -218,9 +218,9 @@ app.post('/webhook/', function (req, res) {
 				send_message.text(sender, "OK. Let me search for internships that match your interests...");
 				var companies = company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
 				send_message.text(sender, "Here are the top 5 internships that match your interests! Good luck!");
-				for(var i=0;i<5;i++) {
+				for(var j=0;j<5;j++) {
 					//recipientId, link, name, subname
-					send_message.generic(sender,companies[i][2],companies[i][0],"")
+					send_message.generic(sender,companies[j][2],companies[j][0],"")
 				}
 			}
 		}

@@ -236,7 +236,7 @@ function checkForCities(text, sender) {
 	for(var i=0;i<citiesArray.length;i++) {
 		if (text.includes(citiesArray[i].toLowerCase())) {
 			addCity(sender, citiesArray[i].toLowerCase())
-			languagePresent = false
+			languagePresent = true
 		}
 	}
 

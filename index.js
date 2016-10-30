@@ -177,11 +177,21 @@ app.post('/webhook/', function (req, res) {
 
 					send_message.text(sender, "OK. I forgot everything you told me. What kind of internship are you looking for?");
 				}
+				else if (text == "suggest") {
+					suggestToSender(sender)
+				}
 				else if (textArrayContains(textArray, ["hi", "yo", "hello"])) {
 					randomHiResponse(sender);
 				}
 				else {
 					send_message.text(sender, "Sorry, I don't know what you mean by \"" + text.substring(0, 200) + "\"");
+					wait(250);
+					if (sessions[sender]["locations"].length == 0) { send_message.text(sender, "What city do you want to intern in?"); }
+					else if (sessions[sender]["roles"].length == 0) { send_message.text(sender, "What position do you want to intern for? (ex. software engineer)"); }
+					else if (sessions[sender]["size"] == "") { send_message.text(sender, "What size company do you want to work for?"); }
+					else if (sessions[sender]["fields"].length == 0) { send_message.text(sender, "What industry are you interested in? (ex. software, hardware)"); }
+					else if (sessions[sender]["languages"].length == 0) { send_message.text(sender, "What programming languages do you know?"); }
+					else if (sessions[sender]["platforms"].length == 0) { send_message.text(sender, "Are you interested in web, mobile, or backend?"); }
 				}
 
 				/*else if (text === 'generic') {
@@ -199,7 +209,7 @@ app.post('/webhook/', function (req, res) {
 			console.log("Payload: "+ payload);
 			if (payload == "GET_STARTED") {
 					//send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"PM", "payload": "PM"}])
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nWhat kind of internship are you looking for?");
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nSay \"suggest\" at any time to get results\n\nSay \"clear\" at any time restart\n\nWhat kind of internship are you looking for?");
 			}
 			else if (payload == "SE") {
 				addRoletoSender(sender, "SE");

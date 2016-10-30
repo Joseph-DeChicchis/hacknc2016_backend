@@ -15,9 +15,10 @@ module.exports = {
     companies = companies.sort(Comparator);
 
     //console.log(companies);
+    /*
     for(var i=0;i<companies.length;i++) {
       console.log("Name: " + companies[i][0] + " | Score: " + companies[i][1] + " | Size: " + companies[i][2] + " | Languages: " + companies[i][3] + " | Roles: " + companies[i][4] + " | Platform: " + companies[i][5] + " | Locations: " + companies[i][6]);
-    }
+    }*/
 
 
 
@@ -26,7 +27,7 @@ module.exports = {
     console.log("---------------------");
     console.log(" | Size: " + size + " | Languages: " + languages + " | Roles: " + roles + " | Platform: " + platforms + " | Locations: " + locations);
 
-    // return company names and URLs in order
+    return companies
   }
 
 };

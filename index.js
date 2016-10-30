@@ -318,7 +318,10 @@ app.listen(app.get('port'), function() {
 app.post('/api/', function (req, res) {
   console.log("api call recieved");
 	//let messaging_events = req.body.entry[0].messaging;
-	res.send("hello world");
+	var user_preferences = req.body;
+	console.log(user_preferences);
+	var companies = company_search.findCompanies(user_preferences["size"],user_preferences["languages"],user_preferences["roles"],user_preferences["platforms"],user_preferences["locations"]);
+	res.send({redirect: '/results', companies: companies});
 });
 
 // static website code

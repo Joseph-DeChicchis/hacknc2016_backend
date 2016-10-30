@@ -229,17 +229,20 @@ function addLanguage(sender, language) {
 
 function checkForCities(text, sender) {
 
-	let data = fs.readFile('cities.txt', 'utf8')
-	console.log("City data: " + data);
-	let citiesArray = data.split("\n")
 	var languagePresent = false
-	for(var i=0;i<citiesArray.length;i++) {
-		console.log("City: " + citiesArray[i].toLowerCase());
-		if (text.includes(citiesArray[i].toLowerCase())) {
-			addCity(sender, citiesArray[i].toLowerCase())
-			languagePresent = true
+
+	fs.readFile("cities.txt", 'utf8', function (err,data) {
+  	if (err) {
+    	return console.log(err);
+  	}
+		let citiesArray = data.split("\n");
+		for(var i=0;i<citiesArray.length;i++) {
+			if (text.includes(citiesArray[i].toLowerCase())) {
+				addCity(sender, citiesArray[i].toLowerCase());
+				languagePresent = true;
+			}
 		}
-	}
+	});
 
 	return languagePresent
 }
@@ -292,13 +295,6 @@ function textArrayContains(textArray,array) {
 // spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'));
-
-	fs.readFile("cities.txt", 'utf8', function (err,data) {
-  	if (err) {
-    	return console.log(err);
-  	}
-  	console.log(data);
-	});
 });
 
 // static website code

@@ -306,8 +306,18 @@ app.listen(app.get('port'), function() {
 
 // api code
 
-app.get("/api", function(request, response, next) {
+/*app.get("/api", function(request, response, next) {
 		response.json({ message: 'hooray! welcome to our api!' });
+		//var user_id = req.bodyParser.id;
+    //var token = req.body.token;
+    //var geo = req.body.geo;
+		console.log(request.query("greeting"));
+		console.log(request.bodyParser.greeting);
+});*/
+
+app.post('/api/', function (req, res) {
+  console.log("api call recieved");
+	//let messaging_events = req.body.entry[0].messaging;
 });
 
 // static website code

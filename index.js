@@ -83,9 +83,9 @@ app.post('/webhook/', function (req, res) {
 			if (checkForLanguages(textArray, sender)) {
 				dataLogged = true
 			}
-
+			console.log("ININININININ");
 			// Check for cities
-			if (checkForCities(text,sender)) {
+			if (checkForCities(text, sender)) {
 				dataLogged = true
 			}
 

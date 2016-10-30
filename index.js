@@ -230,7 +230,7 @@ function addLanguage(sender, language) {
 function checkForCities(text, sender) {
 
 	let data = fs.readFile('cities.txt', 'utf8')
-
+	console.log("City data: " + data);
 	let citiesArray = data.split("\n")
 	var languagePresent = false
 	for(var i=0;i<citiesArray.length;i++) {

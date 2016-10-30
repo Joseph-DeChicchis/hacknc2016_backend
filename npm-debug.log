@@ -1,0 +1,145 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@2.15.8
+3 info using node@v4.4.7
+4 verbose readDependencies loading dependencies from /Users/Jojo/Desktop/Projects/hacknc2016_backend/package.json
+5 warn package.json hacknc2016@1.0.0 No repository field.
+6 verbose install where, deps [ '/Users/Jojo/Desktop/Projects/hacknc2016_backend',
+6 verbose install   [ 'body-parser', 'express', 'request', 'fs' ] ]
+7 verbose install where, peers [ '/Users/Jojo/Desktop/Projects/hacknc2016_backend', [] ]
+8 verbose installManyTop reading for lifecycle /Users/Jojo/Desktop/Projects/hacknc2016_backend/package.json
+9 info preinstall hacknc2016@1.0.0
+10 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/api.ai/package.json
+11 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/async/package.json
+12 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/babel/package.json
+13 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/back/package.json
+14 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/body-parser/package.json
+15 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/command-line-args/package.json
+16 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/dashbot/package.json
+17 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/debug/package.json
+18 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/diff/package.json
+19 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/express/package.json
+20 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/glob/package.json
+21 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/https-proxy-agent/package.json
+22 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/jfs/package.json
+23 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/mocha/package.json
+24 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/mustache/package.json
+25 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/request/package.json
+26 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/rethinkdb/package.json
+27 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/twilio/package.json
+28 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/ware/package.json
+29 verbose installManyTop reading scoped package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/ws/package.json
+30 info package.json twilio@2.11.0 No README data
+31 info package.json rethinkdb@2.3.3 No license field.
+32 verbose readDependencies loading dependencies from /Users/Jojo/Desktop/Projects/hacknc2016_backend/package.json
+33 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/api.ai/package.json
+34 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/async/package.json
+35 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/babel/package.json
+36 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/back/package.json
+37 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/body-parser/package.json
+38 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/command-line-args/package.json
+39 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/dashbot/package.json
+40 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/debug/package.json
+41 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/diff/package.json
+42 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/express/package.json
+43 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/glob/package.json
+44 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/https-proxy-agent/package.json
+45 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/jfs/package.json
+46 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/mocha/package.json
+47 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/mustache/package.json
+48 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/request/package.json
+49 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/rethinkdb/package.json
+50 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/twilio/package.json
+51 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/ware/package.json
+52 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/ws/package.json
+53 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/.bin/babel/package.json
+54 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/.bin/babel-external-helpers/package.json
+55 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/.bin/babel-node/package.json
+56 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/.bin/command-line-args/package.json
+57 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/.bin/mocha/package.json
+58 verbose targetResolver reading package data from /Users/Jojo/Desktop/Projects/hacknc2016_backend/node_modules/.bin/mustache/package.json
+59 verbose already installed skipping express@^4.13.4 /Users/Jojo/Desktop/Projects/hacknc2016_backend
+60 verbose already installed skipping request@^2.71.0 /Users/Jojo/Desktop/Projects/hacknc2016_backend
+61 silly cache add args [ 'fs@7.0.0', null ]
+62 verbose cache add spec fs@7.0.0
+63 silly cache add parsed spec Result {
+63 silly cache add   raw: 'fs@7.0.0',
+63 silly cache add   scope: null,
+63 silly cache add   name: 'fs',
+63 silly cache add   rawSpec: '7.0.0',
+63 silly cache add   spec: '7.0.0',
+63 silly cache add   type: 'version' }
+64 silly addNamed fs@7.0.0
+65 verbose addNamed "7.0.0" is a plain semver version for fs
+66 silly mapToRegistry name fs
+67 silly mapToRegistry using default registry
+68 silly mapToRegistry registry https://registry.npmjs.org/
+69 silly mapToRegistry data Result {
+69 silly mapToRegistry   raw: 'fs',
+69 silly mapToRegistry   scope: null,
+69 silly mapToRegistry   name: 'fs',
+69 silly mapToRegistry   rawSpec: '',
+69 silly mapToRegistry   spec: 'latest',
+69 silly mapToRegistry   type: 'tag' }
+70 silly mapToRegistry uri https://registry.npmjs.org/fs
+71 verbose addNameVersion registry:https://registry.npmjs.org/fs not in flight; fetching
+72 verbose already installed skipping body-parser@^1.15.0 /Users/Jojo/Desktop/Projects/hacknc2016_backend
+73 verbose request uri https://registry.npmjs.org/fs
+74 verbose request no auth needed
+75 info attempt registry request try #1 at 7:58:52 PM
+76 verbose request id 9fbbce5f0e84f709
+77 http request GET https://registry.npmjs.org/fs
+78 http 200 https://registry.npmjs.org/fs
+79 verbose headers { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+79 verbose headers   etag: '"9S4L5EPM9VTVQ4PS11R4PZOXI"',
+79 verbose headers   'content-type': 'application/json',
+79 verbose headers   'content-encoding': 'gzip',
+79 verbose headers   'cache-control': 'max-age=300',
+79 verbose headers   'content-length': '1081',
+79 verbose headers   'accept-ranges': 'bytes',
+79 verbose headers   date: 'Sat, 29 Oct 2016 23:58:52 GMT',
+79 verbose headers   via: '1.1 varnish',
+79 verbose headers   age: '0',
+79 verbose headers   connection: 'keep-alive',
+79 verbose headers   'x-served-by': 'cache-atl6246-ATL',
+79 verbose headers   'x-cache': 'MISS',
+79 verbose headers   'x-cache-hits': '0',
+79 verbose headers   'x-timer': 'S1477785532.559016,VS0,VE348',
+79 verbose headers   vary: 'Accept-Encoding' }
+80 silly get cb [ 200,
+80 silly get   { server: 'CouchDB/1.6.1 (Erlang OTP/R16B03)',
+80 silly get     etag: '"9S4L5EPM9VTVQ4PS11R4PZOXI"',
+80 silly get     'content-type': 'application/json',
+80 silly get     'content-encoding': 'gzip',
+80 silly get     'cache-control': 'max-age=300',
+80 silly get     'content-length': '1081',
+80 silly get     'accept-ranges': 'bytes',
+80 silly get     date: 'Sat, 29 Oct 2016 23:58:52 GMT',
+80 silly get     via: '1.1 varnish',
+80 silly get     age: '0',
+80 silly get     connection: 'keep-alive',
+80 silly get     'x-served-by': 'cache-atl6246-ATL',
+80 silly get     'x-cache': 'MISS',
+80 silly get     'x-cache-hits': '0',
+80 silly get     'x-timer': 'S1477785532.559016,VS0,VE348',
+80 silly get     vary: 'Accept-Encoding' } ]
+81 verbose get saving fs to /Users/Jojo/.npm/registry.npmjs.org/fs/.cache.json
+82 verbose correctMkdir /Users/Jojo/.npm correctMkdir not in flight; initializing
+83 verbose stack Error: version not found: fs@7.0.0
+83 verbose stack     at setData (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:137:12)
+83 verbose stack     at RES (/usr/local/lib/node_modules/npm/node_modules/inflight/inflight.js:23:14)
+83 verbose stack     at f (/usr/local/lib/node_modules/npm/node_modules/once/once.js:17:25)
+83 verbose stack     at fixName (/usr/local/lib/node_modules/npm/lib/cache/add-named.js:29:5)
+83 verbose stack     at saved (/usr/local/lib/node_modules/npm/lib/cache/caching-client.js:173:7)
+83 verbose stack     at /usr/local/lib/node_modules/npm/node_modules/graceful-fs/polyfills.js:210:7
+83 verbose stack     at FSReqWrap.oncomplete (fs.js:82:15)
+84 verbose statusCode 404
+85 verbose cwd /Users/Jojo/Desktop/Projects/hacknc2016_backend
+86 error Darwin 16.1.0
+87 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+88 error node v4.4.7
+89 error npm  v2.15.8
+90 error version not found: fs@7.0.0
+91 error If you need help, you may report this error at:
+91 error     <https://github.com/npm/npm/issues>
+92 verbose exit [ 1, true ]

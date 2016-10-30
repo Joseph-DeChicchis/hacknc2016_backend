@@ -5,6 +5,7 @@ var send_message = require('./send_message')
 const express = require('express')
 const bodyParser = require('body-parser')
 const request = require('request')
+const fs = require('fs')
 const app = express()
 
 var sessions = {}	// store session information
@@ -80,6 +81,11 @@ app.post('/webhook/', function (req, res) {
 
 			// Look for languages
 			if (checkForLanguages(textArray, sender)) {
+				dataLogged = true
+			}
+
+			// Check for cities
+			if (checkForCities(text,sender)) {
 				dataLogged = true
 			}
 
@@ -195,7 +201,7 @@ function addPlatformtoSender(sender, platform) {
 }
 
 function checkForLanguages(textArray, sender) {
-	let languages = ["java", "javascript", "php", "python", "objective-c", "ruby", "perl", "c++", "c#", "swift", "sql", "haskell", "scala", "bash", "lua", "clojure", "assembly"]
+	let languages = ["c", "java", "javascript", "php", "python", "objective-c", "ruby", "perl", "c++", "c#", "swift", "sql", "haskell", "scala", "bash", "lua", "clojure", "assembly"]
 
 	var languagePresent = false
 
@@ -203,14 +209,14 @@ function checkForLanguages(textArray, sender) {
 		let language = languages[i]
 		if (textArrayContains(textArray, [language])) {
 			languagePresent = true
-			addLanguageSender(sender, language)
+			addLanguage(sender, language)
 		}
 	}
 
 	return languagePresent
 }
 
-function addLanguageSender(sender, language) {
+function addLanguage(sender, language) {
 	let userLanguages = sessions[sender]["languages"]
 	console.log("userLanguages: " + userLanguages);
 	if (userLanguages.length == 0) {
@@ -218,6 +224,33 @@ function addLanguageSender(sender, language) {
 	}
 	else if (userLanguages.arrayContains(language) == false) {
 		sessions[sender]["languages"] = userLanguages.concat([language])
+	}
+}
+
+function checkForCities(text, sender) {
+
+	let data = fs.readFile('cities.txt', 'utf8')
+
+	let citiesArray = data.split("\n")
+	var languagePresent = false
+	for(var i=0;i<citiesArray.length;i++) {
+		if (text.includes(citiesArray[i].toLowerCase())) {
+			addCity(sender, citiesArray[i].toLowerCase())
+			languagePresent = false
+		}
+	}
+
+	return languagePresent
+}
+
+function addCity(sender, city) {
+	let userLocations = sessions[sender]["locations"]
+	console.log("userLocations: " + userLocations);
+	if (userLocations.length == 0) {
+		sessions[sender]["locations"] = [city]
+	}
+	else if (userLocations.arrayContains(city) == false) {
+		sessions[sender]["locations"] = userLocations.concat([city])
 	}
 }
 
@@ -258,7 +291,7 @@ function textArrayContains(textArray,array) {
 // spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'))
-})
+});
 
 // static website code
 

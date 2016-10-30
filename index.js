@@ -1,6 +1,7 @@
 'use strict'
 
 var send_message = require('./send_message');
+var company_search = require('./company_search');
 
 const express = require('express');
 const bodyParser = require('body-parser');
@@ -160,7 +161,10 @@ app.post('/webhook/', function (req, res) {
 		}
 
 		if (checkCanSuggest(sender) == true) {
-
+			send_message.text(sender, "OK. Let me search for internships that match your interests...")
+			let session = sessions[sender];
+			//size, languages, roles, platforms, locations
+			company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"]);
 		}
 	}
 	res.sendStatus(200);
@@ -295,6 +299,15 @@ function textArrayContains(textArray,array) {
 // spin spin sugar
 app.listen(app.get('port'), function() {
 	console.log('running on port', app.get('port'));
+
+	//size, languages, roles, platforms, locations
+	//company_search.findCompanies("large",["java", "python", "c++"],["SE"],["mobile"],["mountain view, new york, seattle"]);
+});
+
+// api code
+
+app.get("/api", function(request, response, next) {
+		response.json({ message: 'hooray! welcome to our api!' });
 });
 
 // static website code

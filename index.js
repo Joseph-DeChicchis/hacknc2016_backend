@@ -217,11 +217,20 @@ app.post('/webhook/', function (req, res) {
 				session["suggested"] = true;
 				send_message.text(sender, "OK. Let me search for internships that match your interests...");
 				var companies = company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
-				send_message.text(sender, "Here are the top 5 internships that match your interests! Good luck!");
-				for(var j=0;j<5;j++) {
-					//recipientId, link, name, subname
-					send_message.generic(sender,companies[j][2],companies[j][0],"")
-				}
+				setTimeout(function () {
+        	if (newState == -1) {
+            send_message.text(sender, "Here are the top 5 internships that match your interests! Good luck!");
+
+						for(var j=0;j<5;j++) {
+							//recipientId, link, name, subname
+							setTimeout(function () {
+        				if (newState == -1) {
+            		send_message.generic(sender,companies[j][2],companies[j][0],"")
+        				}
+    				}, 250);
+						}
+        	}
+					}, 500);
 			}
 		}
 	}

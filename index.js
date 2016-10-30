@@ -1,43 +1,43 @@
 'use strict'
 
-var send_message = require('./send_message')
+var send_message = require('./send_message');
 
-const express = require('express')
-const bodyParser = require('body-parser')
-const request = require('request')
-const fs = require('fs')
-const app = express()
+const express = require('express');
+const bodyParser = require('body-parser');
+const request = require('request');
+const fs = require('fs');
+const app = express();
 
-var sessions = {}	// store session information
+var sessions = {};	// store session information
 
-app.set('port', (process.env.PORT || 5000))
+app.set('port', (process.env.PORT || 5000));
 
 // parse application/x-www-form-urlencoded
-app.use(bodyParser.urlencoded({extended: false}))
+app.use(bodyParser.urlencoded({extended: false}));
 
 // parse application/json
-app.use(bodyParser.json())
+app.use(bodyParser.json());
 
 // index
 app.get('/', function (req, res) {
-	res.send('hello world i am a secret bot')
-})
+	res.send('hello world i am a secret bot');
+});
 
 // for facebook verification
 app.get('/webhook/', function (req, res) {
 	if (req.query['hub.verify_token'] === 'joseph') {
-		res.send(req.query['hub.challenge'])
+		res.send(req.query['hub.challenge']);
 	}
-	res.send('Error, wrong token')
-})
+	res.send('Error, wrong token');
+});
 
 // to post data
 app.post('/webhook/', function (req, res) {
-  console.log("message recieved")
-	let messaging_events = req.body.entry[0].messaging
+  console.log("message recieved");
+	let messaging_events = req.body.entry[0].messaging;
 	for (let i = 0; i < messaging_events.length; i++) {
-		let event = req.body.entry[0].messaging[i]
-		let sender = event.sender.id
+		let event = req.body.entry[0].messaging[i];
+		let sender = event.sender.id;
 
 		if (sessions[sender] == null) {
 
@@ -48,97 +48,97 @@ app.post('/webhook/', function (req, res) {
 				"field": [],
 				"languages": [],
 				"platforms": []
-			}
+			};
 		}
 
 		if (event.message && event.message.text) {
-			let text = event.message.text.toLowerCase()
-			let textArray = event.message.text.toLowerCase().split(" ")
+			let text = event.message.text.toLowerCase();
+			let textArray = event.message.text.toLowerCase().split(" ");
 
-			var dataLogged = false
+			var dataLogged = false;
 
-			console.log("IM HERE")
+			console.log("IM HERE");
 
 			// Look for roles
 			if (textArrayContains(textArray, ["software", "ios", "web", "mobile", "mac", "windows", "linux", "ai"]) || textContains(text, ["artificial intelligence", "machine learning"])) {
-				addRoletoSender(sender, "SE")
-				dataLogged = true
+				addRoletoSender(sender, "SE");
+				dataLogged = true;
 			}
 			if (textContains(text, ["quality"])) {
-				addRoletoSender(sender, "QA")
-				dataLogged = true
+				addRoletoSender(sender, "QA");
+				dataLogged = true;
 			}
 			if (textArrayContains(textArray, ["ux", "design", "ui"]) || textContains(text, ["user interface", "user experience"])) {
-				addRoletoSender(sender, "UI")
-				dataLogged = true
+				addRoletoSender(sender, "UI");
+				dataLogged = true;
 			}
 			if (textArrayContains(textArray, ["pm"]) || textContains(text, ["project management", "product management"])) {
-				addRoletoSender(sender, "PM")
-				dataLogged = true
+				addRoletoSender(sender, "PM");
+				dataLogged = true;
 			}
 			if (textArrayContains(textArray, ["statistics"]) || textContains(text, ["data analy", "big data"])) {
-				addRoletoSender(sender, "DA")
-				dataLogged = true
+				addRoletoSender(sender, "DA");
+				dataLogged = true;
 			}
 
-			console.log("HERE TOO")
+			console.log("HERE TOO");
 
 			// Look for languages
 			if (checkForLanguages(textArray, sender)) {
-				dataLogged = true
+				dataLogged = true;
 			}
-			console.log("ININININININ")
+			console.log("ININININININ");
 			// Check for cities
 			if (checkForCities(text, sender)) {
-				dataLogged = true
+				dataLogged = true;
 			}
 
 			// Loook for size
 			if (textArrayContains(textArray, ["small","medium","startup"])) {
-				sessions[sender]["size"] = "medium"
-				dataLogged = true
+				sessions[sender]["size"] = "medium";
+				dataLogged = true;
 			}
 			else if (textArrayContains(textArray, ["large"]) || textContains(text, ["big company"])) {
-				sessions[sender]["size"] = "large"
-				dataLogged = true
+				sessions[sender]["size"] = "large";
+				dataLogged = true;
 			}
 			else if (textContains(text, ["any size"])) {
-				sessions[sender]["size"] = "any"
-				dataLogged = true
+				sessions[sender]["size"] = "any";
+				dataLogged = true;
 			}
 
-			console.log("YOLO")
+			console.log("YOLO");
 
 			// Look for platforms
 			if (textArrayContains(textArray, ["ios", "android", "mobile"])) {
-				addPlatformtoSender(sender, "mobile")
-				dataLogged = true
+				addPlatformtoSender(sender, "mobile");
+				dataLogged = true;
 			}
 			if (textArrayContains(textArray, ["backend", "database", "cloud"]) || textContains(text, ["data center"])) {
-				addPlatformtoSender(sender, "backend")
-				dataLogged = true
+				addPlatformtoSender(sender, "backend");
+				dataLogged = true;
 			}
 			if (textArrayContains(textArray, ["web", "html", "css", "javascript"])) {
-				addPlatformtoSender(sender, "web")
-				dataLogged = true
+				addPlatformtoSender(sender, "web");
+				dataLogged = true;
 			}
 			if (textArrayContains(textArray, ["media", "design", "ux"]) || textContains(text, ["user interface"])) {
-				addPlatformtoSender(sender, "media")
-				dataLogged = true
+				addPlatformtoSender(sender, "media");
+				dataLogged = true;
 			}
 
 			if (dataLogged == true) {
-				randomMoreInfoResponse(sender)
+				randomMoreInfoResponse(sender);
 			}
 			else {
 				if (text === "help") {
-					send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!")
+					send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!");
 				}
 				else if (text === 'generic') {
-					send_message.generic(sender)
+					send_message.generic(sender);
 				}
 				else {
-					send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"")
+					send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"");
 				}
 
 				continue
@@ -152,15 +152,15 @@ app.post('/webhook/', function (req, res) {
 			console.log("Payload: "+ payload);
 			if (payload == "GET_STARTED") {
 					//send_message.quickReplies(sender, "Welcome! I can help you find the perfect internship for you.\n\nWhat kind of internship are you looking for?", [{"content_type":"text", "title":"Software Engineer", "payload": "SE"},{"content_type":"text", "title":"PM", "payload": "PM"}])
-					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nWhat kind of internship are you looking for?")
+					send_message.text(sender, "Welcome! I can help you find the perfect internship for you.\n\nSay \"help\" at any time for instructions\n\nWhat kind of internship are you looking for?");
 			}
 			else if (payload == "SE") {
-				addRoletoSender(sender, "SE")
-				randomMoreInfoResponse(sender)
+				addRoletoSender(sender, "SE");
+				randomMoreInfoResponse(sender);
 			}
 			else if (payload == "PM") {
-				addRoletoSender(sender, "PM")
-				randomMoreInfoResponse(sender)
+				addRoletoSender(sender, "PM");
+				randomMoreInfoResponse(sender);
 			}
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
 		}
@@ -169,7 +169,7 @@ app.post('/webhook/', function (req, res) {
 
 		}
 	}
-	res.sendStatus(200)
+	res.sendStatus(200);
 })
 
 function checkCanSuggest(sender) {
@@ -185,24 +185,24 @@ function checkCanSuggest(sender) {
 }
 
 function addRoletoSender(sender, role) {
-	let userRoles = sessions[sender]["roles"]
+	let userRoles = sessions[sender]["roles"];
 	console.log("userRoles: " + userRoles);
 	if (userRoles.length == 0) {
-		sessions[sender]["roles"] = [role]
+		sessions[sender]["roles"] = [role];
 	}
 	else if (userRoles.arrayContains(role) == false) {
-		sessions[sender]["roles"] = userRoles.concat([role])
+		sessions[sender]["roles"] = userRoles.concat([role]);
 	}
 }
 
 function addPlatformtoSender(sender, platform) {
-	let userPlatforms = sessions[sender]["platforms"]
+	let userPlatforms = sessions[sender]["platforms"];
 	console.log("userPlatforms: " + userPlatforms);
 	if (userPlatforms.length == 0) {
-		sessions[sender]["platforms"] = [platform]
+		sessions[sender]["platforms"] = [platform];
 	}
 	else if (userPlatforms.arrayContains(platform) == false) {
-		sessions[sender]["platforms"] = userPlatforms.concat([platform])
+		sessions[sender]["platforms"] = userPlatforms.concat([platform]);
 	}
 }
 

@@ -78,7 +78,7 @@ function scoreCompanies(size, languages, roles, platforms, locations, fields) {
 
 Array.prototype.arrayContains = function(k) {
 	for(var i=0;i<this.length;i++) {
-		if(this[i] === k) {return true}
+		if(this[i].toLowerCase() === k.toLowerCase()) {return true}
 	}
   return false
 }

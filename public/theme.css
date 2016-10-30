@@ -1,0 +1,161 @@
+body {
+  background-color: #292929;
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-style: normal;
+    src: url('SourceSansPro-ExtraLight.otf');
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-weight: bold;
+    src: url('SourceSansPro-Bold.otf');
+}
+
+
+#container {
+  margin: 20% auto;
+  width: 60%;
+}
+
+.answer {
+  color: #FAD05C;
+  display: inline-block;
+  margin: auto;
+  margin-top: 6%;
+  margin-bottom: 10px;
+  width: 100%;
+  font-family: SourceSansPro;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 2.2vw;
+  background-color: transparent;
+  appearance: none;
+  box-shadow: none;
+  border-radius: none;
+  border: none;
+}
+
+.answer:focus {
+  outline: none;
+}
+
+.qs{
+  position: relative;
+  left: -2%;
+}
+
+.question {
+  color: #FFFFFF;
+  font-family: SourceSansPro, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 2.2vw;
+  line-height:normal;
+
+}
+
+.myButton {
+  visibility: hidden;
+  display: inline-block;
+  margin-bottom: 1%;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #44c767), color-stop(1, #5cbf2a));
+	background:-moz-linear-gradient(top, #FDC539 5%, #FAD05C 100%);
+	background:-webkit-linear-gradient(top, #FDC539 5%, #FAD05C 100%);
+	background:-o-linear-gradient(top,#FDC539 5%, #FAD05C 100%);
+	background:-ms-linear-gradient(top, #FDC539 5%, #FAD05C 100%);
+	background:linear-gradient(to bottom, #FDC539 5%, #FAD05C 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDC539', endColorstr='#FAD05C',GradientType=0);
+	background-color:#FDC539;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: SourceSansPro;
+	font-size:1.2vw;
+  font-weight: 800;
+	padding:10px 25px;
+	text-decoration:none;
+}
+
+.choiceButton {
+  display: inline-block;
+  margin: 2% 0% 10% 1%;
+	background-color:transparent;
+  border-style: solid;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: SourceSansPro;
+	font-size:1.2vw;
+  font-weight: 800;
+	padding:10px 25px;
+	text-decoration:none;
+}
+
+.sevens {
+
+}
+
+.eights {
+
+}
+
+.des{
+  color: #FFFFFF;
+}
+
+.sel{
+  color: #FAD05C;
+}
+
+.sel::after{
+  content: " \2713";
+}
+
+.submit {
+  display: inline-block;
+	background:-webkit-gradient(linear, left top, left bottom, color-stop(0.05, #44c767), color-stop(1, #5cbf2a));
+	background:-moz-linear-gradient(top, #FDC539 5%, #FAD05C 100%);
+	background:-webkit-linear-gradient(top, #FDC539 5%, #FAD05C 100%);
+	background:-o-linear-gradient(top,#FDC539 5%, #FAD05C 100%);
+	background:-ms-linear-gradient(top, #FDC539 5%, #FAD05C 100%);
+	background:linear-gradient(to bottom, #FDC539 5%, #FAD05C 100%);
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr='#FDC539', endColorstr='#FAD05C',GradientType=0);
+	background-color:#FDC539;
+	cursor:pointer;
+	color:#ffffff;
+	font-family: SourceSansPro;
+	font-size:2vw;
+  font-weight: 800;
+	padding:20px 40px;
+	text-decoration:none;
+}
+
+.side {
+  color: #FFFFFF;
+  display: inline-block;
+  margin-left: 1%;
+  opacity: 0.4;
+  font-family: SourceSansPro, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.2vw;
+  line-height:normal;
+}
+
+.enter {
+  visibility: hidden;
+  font-family: SourceSansPro;
+	font-size:0.8vw;
+  font-weight: 800;
+}
+
+.num {
+  vertical-align: 20%;
+  color: #FAD05C;
+  font-family: SourceSansPro, sans-serif;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.2vw;
+
+}

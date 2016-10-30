@@ -20,9 +20,10 @@ app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
 
 // index
+/*
 app.get('/', function (req, res) {
 	res.send('hello world i am a secret bot');
-});
+});*/
 
 // for facebook verification
 app.get('/webhook/', function (req, res) {
@@ -325,6 +326,36 @@ app.post('/api/', function (req, res) {
 });
 
 // static website code
+
+app.get("/", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/index.html')
+});
+
+app.get("/theme.css", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/theme.css')
+});
+
+app.get("/focus.js", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/focus.js')
+});
+
+app.get("/SourceSansPro-Bold.otf", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/SourceSansPro-Bold.otf')
+});
+
+app.get("/SourceSansPro-ExtraLight.otf", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/SourceSansPro-ExtraLight.otf')
+});
+
+app.get("/SourceSansPro-Light.otf", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/SourceSansPro-Light.otf')
+});
 
 app.get("/*", function(request, response, next) {
     console.log("404 not found")

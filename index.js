@@ -431,7 +431,15 @@ app.post('/api/', function (req, res) {
 	var user_preferences = req.body;
 	console.log(user_preferences);
 	var companies = company_search.findCompanies(user_preferences["size"],user_preferences["languages"],user_preferences["roles"],user_preferences["platforms"],user_preferences["locations"],user_preferences["fields"]);
-	res.send({redirect: '/results', companies: companies});
+	var results = {
+		"compnay1" : [companies[0][0],companies[0][2]],
+		"compnay2" : [companies[1][0],companies[1][2]],
+		"compnay3" : [companies[2][0],companies[2][2]],
+		"compnay4" : [companies[3][0],companies[3][2]],
+		"compnay5" : [companies[4][0],companies[4][2]]
+	}
+	var array = JSON.stringify(results);
+	res.send({redirect: '/results?data=' + encodeURIComponent(array)});
 });
 
 // static website code

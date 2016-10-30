@@ -234,6 +234,7 @@ function checkForCities(text, sender) {
 	let citiesArray = data.split("\n")
 	var languagePresent = false
 	for(var i=0;i<citiesArray.length;i++) {
+		console.log("City: " + citiesArray[i].toLowerCase());
 		if (text.includes(citiesArray[i].toLowerCase())) {
 			addCity(sender, citiesArray[i].toLowerCase())
 			languagePresent = true

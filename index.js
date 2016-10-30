@@ -50,12 +50,14 @@ app.post('/webhook/', function (req, res) {
 				"platforms": []
 			}
 		}
-		//randomResponse(sender)
+
 		if (event.message && event.message.text) {
 			let text = event.message.text.toLowerCase()
 			let textArray = event.message.text.toLowerCase().split(" ")
 
 			var dataLogged = false
+
+			console.log("IM HERE")
 
 			// Look for roles
 			if (textArrayContains(textArray, ["software", "ios", "web", "mobile", "mac", "windows", "linux", "ai"]) || textContains(text, ["artificial intelligence", "machine learning"])) {
@@ -79,11 +81,13 @@ app.post('/webhook/', function (req, res) {
 				dataLogged = true
 			}
 
+			console.log("HERE TOO")
+
 			// Look for languages
 			if (checkForLanguages(textArray, sender)) {
 				dataLogged = true
 			}
-			console.log("ININININININ");
+			console.log("ININININININ")
 			// Check for cities
 			if (checkForCities(text, sender)) {
 				dataLogged = true
@@ -102,6 +106,8 @@ app.post('/webhook/', function (req, res) {
 				sessions[sender]["size"] = "any"
 				dataLogged = true
 			}
+
+			console.log("YOLO")
 
 			// Look for platforms
 			if (textArrayContains(textArray, ["ios", "android", "mobile"])) {

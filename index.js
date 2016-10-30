@@ -445,52 +445,76 @@ app.post('/api/', function (req, res) {
 // static website code
 
 app.get("/", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/index.html')
 });
 
+app.get("/1.png", function(request, response, next) {
+
+    response.sendFile(__dirname + '/public/1.png')
+});
+
+app.get("/2.png", function(request, response, next) {
+
+    response.sendFile(__dirname + '/public/2.png')
+});
+
+app.get("/3.png", function(request, response, next) {
+
+    response.sendFile(__dirname + '/public/3.png')
+});
+
+app.get("/4.png", function(request, response, next) {
+
+    response.sendFile(__dirname + '/public/4.png')
+});
+
+app.get("/5.png", function(request, response, next) {
+
+    response.sendFile(__dirname + '/public/5.png')
+});
+
 app.get("/companies.js", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/companies.js')
 });
 
 app.get("/fire.png", function(request, response, next) {
-    console.log("Main page")
     response.sendFile(__dirname + '/public/fire.png')
 });
 
 app.get("/focus.js", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/focus.js')
 });
 
 app.get("/resTheme.css", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/resTheme.css')
 });
 
 app.get("/results", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/results.html')
 });
 
 app.get("/theme.css", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/theme.css')
 });
 
 app.get("/SourceSansPro-Bold.otf", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/SourceSansPro-Bold.otf')
 });
 
 app.get("/SourceSansPro-ExtraLight.otf", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/SourceSansPro-ExtraLight.otf')
 });
 
 app.get("/SourceSansPro-Light.otf", function(request, response, next) {
-    console.log("Main page")
+
     response.sendFile(__dirname + '/public/SourceSansPro-Light.otf')
 });
 

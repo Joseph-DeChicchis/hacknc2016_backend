@@ -96,6 +96,8 @@ $(document).ready(function(){
       });
     });
 
+
+
     $(".eights").click(function(e){
       e.preventDefault();
       $(e.target).toggleClass("des sel");

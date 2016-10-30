@@ -1,0 +1,51 @@
+body {
+  background-color: #292929;
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-style: normal;
+    src: url('SourceSansPro-ExtraLight.otf');
+}
+
+@font-face {
+    font-family: SourceSansPro;
+    font-weight: bold;
+    src: url('SourceSansPro-Bold.otf');
+}
+
+h1 {
+  color: #ffffff;
+  font-family: SourceSansPro;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 4vw;
+}
+
+li {
+  margin: 10% 26%;
+  color: #ffffff;
+  font-family: SourceSansPro;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1vw;
+}
+
+#header {
+  position: absolute;
+  margin-top: -21%;
+  margin-left: 26%;
+  width: 50%;
+  height: auto;
+}
+
+p {
+  position: absolute;
+  margin-left: 26%;
+  margin-top: -8%;
+  color: #ffffff;
+  font-family: SourceSansPro;
+  font-style: normal;
+  font-weight: 200;
+  font-size: 1.8vw;
+}

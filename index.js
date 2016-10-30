@@ -432,11 +432,11 @@ app.post('/api/', function (req, res) {
 	console.log(user_preferences);
 	var companies = company_search.findCompanies(user_preferences["size"],user_preferences["languages"],user_preferences["roles"],user_preferences["platforms"],user_preferences["locations"],user_preferences["fields"]);
 	var results = {
-		"compnay1" : [companies[0][0],companies[0][2]],
-		"compnay2" : [companies[1][0],companies[1][2]],
-		"compnay3" : [companies[2][0],companies[2][2]],
-		"compnay4" : [companies[3][0],companies[3][2]],
-		"compnay5" : [companies[4][0],companies[4][2]]
+		"company1" : [companies[0][0],companies[0][2]],
+		"company2" : [companies[1][0],companies[1][2]],
+		"company3" : [companies[2][0],companies[2][2]],
+		"company4" : [companies[3][0],companies[3][2]],
+		"company5" : [companies[4][0],companies[4][2]]
 	}
 	var array = JSON.stringify(results);
 	res.send({redirect: '/results?data=' + encodeURIComponent(array)});
@@ -449,14 +449,34 @@ app.get("/", function(request, response, next) {
     response.sendFile(__dirname + '/public/index.html')
 });
 
-app.get("/theme.css", function(request, response, next) {
+app.get("/companies.js", function(request, response, next) {
     console.log("Main page")
-    response.sendFile(__dirname + '/public/theme.css')
+    response.sendFile(__dirname + '/public/companies.js')
+});
+
+app.get("/fire.png", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/fire.png')
 });
 
 app.get("/focus.js", function(request, response, next) {
     console.log("Main page")
     response.sendFile(__dirname + '/public/focus.js')
+});
+
+app.get("/resTheme.css", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/resTheme.css')
+});
+
+app.get("/results", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/results.html')
+});
+
+app.get("/theme.css", function(request, response, next) {
+    console.log("Main page")
+    response.sendFile(__dirname + '/public/theme.css')
 });
 
 app.get("/SourceSansPro-Bold.otf", function(request, response, next) {

@@ -1,14 +1,18 @@
 $(document).ready(function(){
-  var questions = ["#one", "#two", "#three", "#four", "#five", "#six", "#seven", "#eight"];
+  var questions = ["#one", "#two", "#three", "#four", "#five", "#six", "#seven", "#eight", "#nine"];
   var k = 0;
   var activeK = 0;
+
+  var fields = [];
+  var roles = [];
+  var platforms = [];
 
   var middle = $(window).height()/2.0;
   var middlePoint = middle/2.0;
 
   $((questions[activeK]+"ans")).focus();
 
-  for(k = 0; k<8; k++){
+  for(k = 0; k<9; k++){
     //INIT
       var elOne = $ (questions[k]);
       var eTop = elOne.offset().top;
@@ -23,8 +27,11 @@ $(document).ready(function(){
       }
       else if(k == 6){
         $(".sevens").fadeTo(1, 1);
-      }else{
+      }else if(k == 7){
         $(".eights").fadeTo(1, 1);
+      }
+      else{
+        $(".nines").fadeTo(1, 1);
       }
     }else{
 
@@ -34,10 +41,13 @@ $(document).ready(function(){
       $((questions[k]+"ans")).blur();
       $(questions[k]+"ent").invisible();
     }else if(k == 6){
-      $(".sevens").fadeTo(1, 0.4);
-    }else{
-      $(".eights").fadeTo(1, 0.4);
-    }
+        $(".sevens").fadeTo(1, 0.4);
+      }else if(k == 7){
+        $(".eights").fadeTo(1, 0.4);
+      }
+      else{
+        $(".nines").fadeTo(1, 0.4);
+      }
     }
   }
 
@@ -60,17 +70,21 @@ $(document).ready(function(){
 
     $(".submit").click(function(e){
       e.preventDefault();
+      var name = $("#oneans").val();
+      var grad = $("#threeans").val();
+      var languages = $("#sixans").val().split(/,\s+/);
+      var locations = $("#fiveans").val().split(/,\s+/);
 
       $.ajax({
         type: "POST",
         url: "/api/",
         data: JSON.stringify({
-          "size":"large",
-          "languages":["java", "python", "c++", "perl"],
-          "roles":["SE"],
-          "platforms":["mobile"],
-          "locations":["san francisco, palo alto, seattle"],
-          "fields":["software", "hardware"]
+          "size":"",
+          "languages":languages,
+          "roles":roles,
+          "platforms":platforms,
+          "locations":locations,
+          "fields":fields
         }),
         contentType: "application/json",
         dataType: 'json',
@@ -81,44 +95,69 @@ $(document).ready(function(){
         }
       });
     });
-      /*
-        $.ajax
-            url: '/api/'
-            type: 'POST'
-            data: $({test:"test"}}).serialize()
-            dataType: 'json'
-            success: (data, textStatus, jqXHR) ->
-                if typeof data.redirect == 'string'
-                    window.location = data.redirect*/
 
-/*
-    $(".submit").click(function(e){
-      e.preventDefault();
-      $.ajax
-            url: '/api/'
-            type: 'POST'
-            data: $({
-  "size":"large",
-  "languages":["java", "python", "c++", "perl"],
-  "roles":["SE"],
-  "platforms":["mobile"],
-  "locations":["san francisco, palo alto, seattle"]
-}).serialize()
-dataType: 'json'
-  success: (data, textStatus, jqXHR) ->
-      if typeof data.redirect == 'string'
-          window.location = data.redirect
-    });*/
-
-    $(".choiceButton").click(function(e){
+    $(".eights").click(function(e){
       e.preventDefault();
       $(e.target).toggleClass("des sel");
+      var i = fields.indexOf($(e.target).text());
+      if(i > -1){
+        fields.splice(i, 1);
+      }else{
+
+      fields.push($(e.target).text());
+    }
+    });
+
+    $(".sevens").click(function(e){
+      e.preventDefault();
+      $(e.target).toggleClass("des sel");
+      var sf = "";
+      switch($(e.target).text()){
+        case "Software Engineer":
+         sf = "SE";
+        break;
+        case "Designer":
+         sf = "UI";
+        break;
+        case "Product Manager":
+        sf = "PM";
+        break;
+      }
+    var i = roles.indexOf(sf);
+      if(i > -1){
+        roles.splice(i, 1);
+      }else{
+        var sf = "";
+        switch($(e.target).text()){
+          case "Software Engineer":
+           sf = "SE";
+          break;
+          case "Designer":
+           sf = "UI";
+          break;
+          case "Product Manager":
+          sf = "PM";
+          break;
+        }
+      roles.push(sf);
+    }
+    });
+
+    $(".nines").click(function(e){
+      e.preventDefault();
+      $(e.target).toggleClass("des sel");
+      var i = platforms.indexOf($(e.target).text());
+      if(i > -1){
+        platforms.splice(i, 1);
+      }else{
+      platforms.push($(e.target).text());
+    }
+    console.log(platforms);
     });
 
 
   $(window).scroll(function () {
-    console.log(activeK);
-    for(k = 0; k<8; k++){
+    for(k = 0; k<9; k++){
       var elOne = $ (questions[k]);
       var eTop = elOne.offset().top;
     //console.log((eTop - $(window).scrollTop() + " middle = " + middle));
@@ -133,10 +172,13 @@ dataType: 'json'
       $((questions[k]+"ans")).unfade();
       $(questions[k]+"ent").visible();
     }else if(k == 6){
-      $(".sevens").fadeTo(1, 1);
-    }else{
-      $(".eights").fadeTo(1, 1);
-    }
+        $(".sevens").fadeTo(1, 1);
+      }else if(k == 7){
+        $(".eights").fadeTo(1, 1);
+      }
+      else{
+        $(".nines").fadeTo(1, 1);
+      }
     }else{
 
       $((questions[k]+"qs")).fadeTo(1, 0.4);
@@ -146,10 +188,13 @@ dataType: 'json'
       $((questions[k]+"ans")).fade();
       $(questions[k]+"ent").invisible();
     }else if(k == 6){
-      $(".sevens").fadeTo(1, 0.4);
-    }else{
-      $(".eights").fadeTo(1, 0.4);
-    }
+        $(".sevens").fadeTo(1, 0.4);
+      }else if(k == 7){
+        $(".eights").fadeTo(1, 0.4);
+      }
+      else{
+        $(".nines").fadeTo(1, 0.4);
+      }
     }
   }
   });

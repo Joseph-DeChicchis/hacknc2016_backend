@@ -157,7 +157,7 @@ app.post('/webhook/', function (req, res) {
 				dataLogged = true;
 			}
 
-			if (dataLogged == true && suggestToSender(sender) == false) {
+			if (dataLogged == true && suggestToSender(sender, false) == false) {
 				randomMoreInfoResponse(sender);
 			}
 			else {
@@ -178,7 +178,7 @@ app.post('/webhook/', function (req, res) {
 					send_message.text(sender, "OK. I forgot everything you told me. What kind of internship are you looking for?");
 				}
 				else if (text == "suggest") {
-					suggestToSender(sender)
+					suggestToSender(sender, true)
 				}
 				else if (textArrayContains(textArray, ["hi", "yo", "hello"])) {
 					randomHiResponse(sender);
@@ -222,13 +222,13 @@ app.post('/webhook/', function (req, res) {
 			//send_message.text(sender, "Postback received: "+callback.substring(0, 200))
 		}
 
-		suggestToSender(sender);
+		suggestToSender(sender, false);
 	}
 	res.sendStatus(200);
 })
 
-function suggestToSender(sender) {
-	if (checkCanSuggest(sender) == true) {
+function suggestToSender(sender, force) {
+	if (checkCanSuggest(sender) == true || force) {
 		let session = sessions[sender];
 		if (session["suggested"] == false) {
 			session["suggested"] = true;

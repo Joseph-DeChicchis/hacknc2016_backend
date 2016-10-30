@@ -47,7 +47,7 @@ app.post('/webhook/', function (req, res) {
 				"locations": [],
 				"roles": [],
 				"size": "any",
-				"field": [],
+				"fields": [],
 				"languages": [],
 				"platforms": []
 			};
@@ -78,6 +78,38 @@ app.post('/webhook/', function (req, res) {
 			}
 			if (textArrayContains(textArray, ["statistics"]) || textContains(text, ["data analy", "big data"])) {
 				addRoletoSender(sender, "DA");
+				dataLogged = true;
+			}
+			//addFieldtoSender
+			//categories = new String[]{"software", "hardware", "design", "finance", "real estate"
+			//, "entertainment", "travel"};
+
+			if (textContains(text, ["software"])) {
+				addFieldtoSender(sender, "software");
+				dataLogged = true;
+			}
+			if (textContains(text, ["hardware"])) {
+				addFieldtoSender(sender, "hardware");
+				dataLogged = true;
+			}
+			if (textContains(text, ["design"])) {
+				addFieldtoSender(sender, "design");
+				dataLogged = true;
+			}
+			if (textContains(text, ["finance"])) {
+				addFieldtoSender(sender, "finance");
+				dataLogged = true;
+			}
+			if (textContains(text, ["real estate"])) {
+				addFieldtoSender(sender, "real estate");
+				dataLogged = true;
+			}
+			if (textContains(text, ["entertainment"])) {
+				addFieldtoSender(sender, "entertainment");
+				dataLogged = true;
+			}
+			if (textContains(text, ["travel"])) {
+				addFieldtoSender(sender, "travel");
 				dataLogged = true;
 			}
 
@@ -176,7 +208,7 @@ function checkCanSuggest(sender) {
 	if (sessions[sender]["locations"].length == 0) { return false }
 	if (sessions[sender]["roles"].length == 0) { return false }
 	if (sessions[sender]["size"] == "") { return false }
-	if (sessions[sender]["field"].length == 0) { return false }
+	if (sessions[sender]["fields"].length == 0) { return false }
 	if (sessions[sender]["languages"].length == 0) { return false }
 	if (sessions[sender]["platforms"].length == 0) { return false }
 
@@ -191,6 +223,17 @@ function addRoletoSender(sender, role) {
 	}
 	else if (userRoles.arrayContains(role) == false) {
 		sessions[sender]["roles"] = userRoles.concat([role]);
+	}
+}
+
+function addFieldtoSender(sender, field) {
+	let userFields = sessions[sender]["fields"];
+	console.log("userFields: " + userFields);
+	if (userFields.length == 0) {
+		sessions[sender]["fields"] = [field];
+	}
+	else if (userFields.arrayContains(field) == false) {
+		sessions[sender]["fields"] = userFields.concat([field]);
 	}
 }
 

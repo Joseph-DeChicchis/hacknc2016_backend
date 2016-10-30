@@ -69,14 +69,15 @@ $(document).ready(function(){
           "languages":["java", "python", "c++", "perl"],
           "roles":["SE"],
           "platforms":["mobile"],
-          "locations":["san francisco, palo alto, seattle"]
+          "locations":["san francisco, palo alto, seattle"],
+          "fields":["software", "hardware"]
         }),
         contentType: "application/json",
         dataType: 'json',
         success: function(result) {
           console.log("Success!");
           console.log(result.companies);
-          //window.location = result.redirect
+          window.location = result.redirect
         }
       });
     });

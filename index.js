@@ -49,7 +49,8 @@ app.post('/webhook/', function (req, res) {
 				"size": "any",
 				"fields": [],
 				"languages": [],
-				"platforms": []
+				"platforms": [],
+				"suggested": false
 			};
 		}
 
@@ -162,12 +163,29 @@ app.post('/webhook/', function (req, res) {
 				if (text === "help") {
 					send_message.text(sender, "So you need help?\n\nWell, all you have to do is type out what kind of internship you're interested in, and I'm smart enough to understand!\n\nYou can tell me about the size, location, languages used and more about your perfect internship!");
 				}
-				else if (text === 'generic') {
-					send_message.generic(sender);
+				else if (text === "clear") {
+					sessions[sender] = {
+						"locations": [],
+						"roles": [],
+						"size": "any",
+						"fields": [],
+						"languages": [],
+						"platforms": [],
+						"suggested": false
+					};
+
+					send_message.text(sender, "OK. I forgot everything you told me. What kind of internship are you looking for?");
+				}
+				else if (textArrayContains(textArray, ["hi", "yo", "hello"])) {
+					randomHiResponse(sender);
 				}
 				else {
 					send_message.text(sender, "Sorry, I don't know what you meant by \"" + text.substring(0, 200) + "\"");
 				}
+
+				/*else if (text === 'generic') {
+					send_message.generic(sender);
+				}*/
 
 				continue
 			}
@@ -194,10 +212,12 @@ app.post('/webhook/', function (req, res) {
 		}
 
 		if (checkCanSuggest(sender) == true) {
-			send_message.text(sender, "OK. Let me search for internships that match your interests...")
 			let session = sessions[sender];
-			//size, languages, roles, platforms, locations
-			company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
+			if (session["suggested"] == false) {
+				session["suggested"] = true;
+				send_message.text(sender, "OK. Let me search for internships that match your interests...");
+				company_search.findCompanies(session["size"],session["languages"],session["roles"],session["platforms"],session["locations"],session["fields"]);
+			}
 		}
 	}
 	res.sendStatus(200);
@@ -308,6 +328,11 @@ function addCity(sender, city) {
 
 function randomResponse(sender) {
 	let randomWords = ["OK", "I understand", "Let me see what I can do...", "I'll try my best to help you", "I got your back!", "Awesome!"]
+	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
+}
+
+function randomHiResponse(sender) {
+	let randomWords = ["Hi there!", "Yo", "I'm here to help", "I got your back!"]
 	send_message.text(sender, randomWords[Math.floor(Math.random() * randomWords.length)])
 }
 

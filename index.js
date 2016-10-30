@@ -51,6 +51,8 @@ app.post('/webhook/', function (req, res) {
 			};
 		}
 
+		console.log("IM HERE HERE HERE");
+
 		if (event.message && event.message.text) {
 			let text = event.message.text.toLowerCase();
 			let textArray = event.message.text.toLowerCase().split(" ");
